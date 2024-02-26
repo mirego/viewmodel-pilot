@@ -1,4 +1,4 @@
-package com.mirego.declarative.navigation
+package com.mirego.pilot.navigation
 
 internal expect object UUIDGenerator {
     fun uuid(): String

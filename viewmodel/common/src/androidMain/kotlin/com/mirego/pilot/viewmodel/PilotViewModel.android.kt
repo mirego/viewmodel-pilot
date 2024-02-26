@@ -1,4 +1,4 @@
-package com.mirego.declarative.viewmodel
+package com.mirego.pilot.viewmodel
 
 import androidx.lifecycle.ViewModel as AndroidXViewModel
 

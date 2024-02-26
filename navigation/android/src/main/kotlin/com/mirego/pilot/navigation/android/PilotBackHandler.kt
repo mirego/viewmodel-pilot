@@ -1,11 +1,11 @@
-package com.mirego.declarative.navigation.android
+package com.mirego.pilot.navigation.android
 
 import androidx.activity.compose.BackHandler
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.navigation.NavHostController
-import com.mirego.declarative.navigation.PilotNavigationManager
+import com.mirego.pilot.navigation.PilotNavigationManager
 
 @Composable
 public fun PilotBackHandler(navController: NavHostController, navigationManager: PilotNavigationManager<*, *>, rootName: String) {

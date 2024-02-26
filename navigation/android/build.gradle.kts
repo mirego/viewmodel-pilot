@@ -6,8 +6,10 @@ plugins {
     alias(libs.plugins.mirego.publish)
 }
 
+group = "com.mirego.pilot"
+
 android {
-    namespace = "com.mirego.viewmodel.pilot.navigation.android"
+    namespace = "com.mirego.pilot.navigation.android"
     defaultConfig {
         vectorDrawables {
             useSupportLibrary = true

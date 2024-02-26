@@ -1,4 +1,4 @@
-package com.mirego.declarative.navigation
+package com.mirego.pilot.navigation
 
 public abstract class PilotNavigationManager<ROUTE : PilotNavigationRoute, ACTION : Any> {
     public abstract fun currentRoutes(): List<ROUTE>

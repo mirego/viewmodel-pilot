@@ -7,7 +7,7 @@ plugins {
     alias(libs.plugins.mirego.publish)
 }
 
-group = "com.mirego.declarative.navigation"
+group = "com.mirego.pilot"
 
 ktlint {
     enableExperimentalRules.set(true)
@@ -17,7 +17,7 @@ ktlint {
 }
 
 android {
-    namespace = "com.mirego.viewmodel.pilot.navigation"
+    namespace = "com.mirego.pilot.navigation"
     sourceSets {
         getByName("main").resources.srcDir("src/commonMain/resources/")
     }

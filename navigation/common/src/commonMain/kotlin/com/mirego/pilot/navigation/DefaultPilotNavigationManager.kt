@@ -1,4 +1,4 @@
-package com.mirego.declarative.navigation
+package com.mirego.pilot.navigation
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch

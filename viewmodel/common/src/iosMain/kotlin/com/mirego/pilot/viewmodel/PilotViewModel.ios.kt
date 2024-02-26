@@ -1,4 +1,4 @@
-package com.mirego.declarative.viewmodel
+package com.mirego.pilot.viewmodel
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

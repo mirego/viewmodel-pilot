@@ -1,56 +1,56 @@
-public class com/mirego/declarative/navigation/DefaultPilotNavigationManager : com/mirego/declarative/navigation/PilotNavigationManager {
-	public fun <init> (Lkotlinx/coroutines/CoroutineScope;Lcom/mirego/declarative/navigation/PilotNavigationManager;)V
-	public synthetic fun <init> (Lkotlinx/coroutines/CoroutineScope;Lcom/mirego/declarative/navigation/PilotNavigationManager;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+public class com/mirego/pilot/navigation/DefaultPilotNavigationManager : com/mirego/pilot/navigation/PilotNavigationManager {
+	public fun <init> (Lkotlinx/coroutines/CoroutineScope;Lcom/mirego/pilot/navigation/PilotNavigationManager;)V
+	public synthetic fun <init> (Lkotlinx/coroutines/CoroutineScope;Lcom/mirego/pilot/navigation/PilotNavigationManager;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun currentRoutes ()Ljava/util/List;
-	public fun findRoute (Ljava/lang/String;)Lcom/mirego/declarative/navigation/PilotNavigationRoute;
+	public fun findRoute (Ljava/lang/String;)Lcom/mirego/pilot/navigation/PilotNavigationRoute;
 	public fun handleAction (Ljava/lang/Object;)V
 	public fun pop ()V
 	public fun popToId (Ljava/lang/String;Z)V
 	public fun popToName (Ljava/lang/String;Z)V
 	public fun popToRoot ()V
 	public fun popped ()V
-	public fun poppedFrom (Lcom/mirego/declarative/navigation/PilotNavigationRoute;)V
-	public fun push (Lcom/mirego/declarative/navigation/PilotNavigationRoute;Z)V
+	public fun poppedFrom (Lcom/mirego/pilot/navigation/PilotNavigationRoute;)V
+	public fun push (Lcom/mirego/pilot/navigation/PilotNavigationRoute;Z)V
 }
 
-public abstract class com/mirego/declarative/navigation/EnumPilotNavigationRoute : com/mirego/declarative/navigation/PilotNavigationRoute {
+public abstract class com/mirego/pilot/navigation/EnumPilotNavigationRoute : com/mirego/pilot/navigation/PilotNavigationRoute {
 	public fun <init> (Ljava/lang/Enum;)V
 	public fun getName ()Ljava/lang/String;
 	public fun getUniqueId ()Ljava/lang/String;
 }
 
-public abstract class com/mirego/declarative/navigation/PilotActionNavigationListener {
+public abstract class com/mirego/pilot/navigation/PilotActionNavigationListener {
 	public fun <init> ()V
 	public abstract fun handleAction (Ljava/lang/Object;)V
 }
 
-public abstract class com/mirego/declarative/navigation/PilotNavigationListener {
+public abstract class com/mirego/pilot/navigation/PilotNavigationListener {
 	public fun <init> ()V
 	public abstract fun pop ()V
-	public abstract fun popTo (Lcom/mirego/declarative/navigation/PilotNavigationRoute;Z)V
-	public abstract fun push (Lcom/mirego/declarative/navigation/PilotNavigationRoute;)V
+	public abstract fun popTo (Lcom/mirego/pilot/navigation/PilotNavigationRoute;Z)V
+	public abstract fun push (Lcom/mirego/pilot/navigation/PilotNavigationRoute;)V
 }
 
-public abstract class com/mirego/declarative/navigation/PilotNavigationManager {
+public abstract class com/mirego/pilot/navigation/PilotNavigationManager {
 	public fun <init> ()V
 	public abstract fun currentRoutes ()Ljava/util/List;
-	public abstract fun findRoute (Ljava/lang/String;)Lcom/mirego/declarative/navigation/PilotNavigationRoute;
-	public final fun getActionListener ()Lcom/mirego/declarative/navigation/PilotActionNavigationListener;
-	public final fun getListener ()Lcom/mirego/declarative/navigation/PilotNavigationListener;
+	public abstract fun findRoute (Ljava/lang/String;)Lcom/mirego/pilot/navigation/PilotNavigationRoute;
+	public final fun getActionListener ()Lcom/mirego/pilot/navigation/PilotActionNavigationListener;
+	public final fun getListener ()Lcom/mirego/pilot/navigation/PilotNavigationListener;
 	public abstract fun handleAction (Ljava/lang/Object;)V
 	public abstract fun pop ()V
 	public abstract fun popToId (Ljava/lang/String;Z)V
 	public abstract fun popToName (Ljava/lang/String;Z)V
 	public abstract fun popToRoot ()V
 	public abstract fun popped ()V
-	public abstract fun poppedFrom (Lcom/mirego/declarative/navigation/PilotNavigationRoute;)V
-	public abstract fun push (Lcom/mirego/declarative/navigation/PilotNavigationRoute;Z)V
-	public static synthetic fun push$default (Lcom/mirego/declarative/navigation/PilotNavigationManager;Lcom/mirego/declarative/navigation/PilotNavigationRoute;ZILjava/lang/Object;)V
-	public final fun setActionListener (Lcom/mirego/declarative/navigation/PilotActionNavigationListener;)V
-	public final fun setListener (Lcom/mirego/declarative/navigation/PilotNavigationListener;)V
+	public abstract fun poppedFrom (Lcom/mirego/pilot/navigation/PilotNavigationRoute;)V
+	public abstract fun push (Lcom/mirego/pilot/navigation/PilotNavigationRoute;Z)V
+	public static synthetic fun push$default (Lcom/mirego/pilot/navigation/PilotNavigationManager;Lcom/mirego/pilot/navigation/PilotNavigationRoute;ZILjava/lang/Object;)V
+	public final fun setActionListener (Lcom/mirego/pilot/navigation/PilotActionNavigationListener;)V
+	public final fun setListener (Lcom/mirego/pilot/navigation/PilotNavigationListener;)V
 }
 
-public abstract interface class com/mirego/declarative/navigation/PilotNavigationRoute {
+public abstract interface class com/mirego/pilot/navigation/PilotNavigationRoute {
 	public abstract fun getName ()Ljava/lang/String;
 	public abstract fun getUniqueId ()Ljava/lang/String;
 }

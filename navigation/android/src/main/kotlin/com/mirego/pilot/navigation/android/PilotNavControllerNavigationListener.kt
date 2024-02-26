@@ -1,8 +1,8 @@
-package com.mirego.declarative.navigation.android
+package com.mirego.pilot.navigation.android
 
 import androidx.navigation.NavController
-import com.mirego.declarative.navigation.PilotNavigationListener
-import com.mirego.declarative.navigation.PilotNavigationRoute
+import com.mirego.pilot.navigation.PilotNavigationListener
+import com.mirego.pilot.navigation.PilotNavigationRoute
 
 public open class PilotNavControllerNavigationListener<ROUTE : PilotNavigationRoute>(
     private val navController: NavController,

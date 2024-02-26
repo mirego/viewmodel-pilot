@@ -1,4 +1,4 @@
-package com.mirego.declarative.navigation
+package com.mirego.pilot.navigation
 
 import java.util.UUID
 

@@ -1,17 +1,17 @@
-public final class com/mirego/declarative/navigation/android/PilotBackHandlerKt {
-	public static final fun PilotBackHandler (Landroidx/navigation/NavHostController;Lcom/mirego/declarative/navigation/PilotNavigationManager;Ljava/lang/String;Landroidx/compose/runtime/Composer;I)V
+public final class com/mirego/pilot/navigation/android/PilotBackHandlerKt {
+	public static final fun PilotBackHandler (Landroidx/navigation/NavHostController;Lcom/mirego/pilot/navigation/PilotNavigationManager;Ljava/lang/String;Landroidx/compose/runtime/Composer;I)V
 }
 
-public class com/mirego/declarative/navigation/android/PilotNavControllerNavigationListener : com/mirego/declarative/navigation/PilotNavigationListener {
+public class com/mirego/pilot/navigation/android/PilotNavControllerNavigationListener : com/mirego/pilot/navigation/PilotNavigationListener {
 	public static final field $stable I
 	public fun <init> (Landroidx/navigation/NavController;)V
 	public fun pop ()V
-	public fun popTo (Lcom/mirego/declarative/navigation/PilotNavigationRoute;Z)V
-	public fun push (Lcom/mirego/declarative/navigation/PilotNavigationRoute;)V
+	public fun popTo (Lcom/mirego/pilot/navigation/PilotNavigationRoute;Z)V
+	public fun push (Lcom/mirego/pilot/navigation/PilotNavigationRoute;)V
 }
 
-public final class com/mirego/declarative/navigation/android/PilotNavigationHelpersKt {
-	public static final fun findRoute (Lcom/mirego/declarative/navigation/PilotNavigationManager;Landroidx/navigation/NavBackStackEntry;)Lcom/mirego/declarative/navigation/PilotNavigationRoute;
+public final class com/mirego/pilot/navigation/android/PilotNavigationHelpersKt {
+	public static final fun findRoute (Lcom/mirego/pilot/navigation/PilotNavigationManager;Landroidx/navigation/NavBackStackEntry;)Lcom/mirego/pilot/navigation/PilotNavigationRoute;
 	public static final fun getPilotNavArguments ()Ljava/util/List;
 	public static final fun pilotNavRoute (Ljava/lang/String;)Ljava/lang/String;
 }

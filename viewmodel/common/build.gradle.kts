@@ -7,10 +7,10 @@ plugins {
     alias(libs.plugins.mirego.publish)
 }
 
-group = "com.mirego.declarative.viewmodel"
+group = "com.mirego.pilot"
 
 android {
-    namespace = "com.mirego.viewmodel.pilot"
+    namespace = "com.mirego.pilot.viewmodel"
 }
 
 kotlin {

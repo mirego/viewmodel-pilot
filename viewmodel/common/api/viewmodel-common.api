@@ -1,9 +1,9 @@
-public abstract class com/mirego/declarative/viewmodel/PilotViewModel : androidx/lifecycle/ViewModel {
+public abstract class com/mirego/pilot/viewmodel/PilotViewModel : androidx/lifecycle/ViewModel {
 	public fun <init> ()V
 	protected fun onCleared ()V
 }
 
-public final class com/mirego/declarative/viewmodel/PilotViewModelScope_androidKt {
-	public static final fun getViewModelScope (Lcom/mirego/declarative/viewmodel/PilotViewModel;)Lkotlinx/coroutines/CoroutineScope;
+public final class com/mirego/pilot/viewmodel/PilotViewModelScope_androidKt {
+	public static final fun getViewModelScope (Lcom/mirego/pilot/viewmodel/PilotViewModel;)Lkotlinx/coroutines/CoroutineScope;
 }
 

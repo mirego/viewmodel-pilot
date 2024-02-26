@@ -1,11 +1,11 @@
-package com.mirego.declarative.navigation.android
+package com.mirego.pilot.navigation.android
 
 import androidx.navigation.NamedNavArgument
 import androidx.navigation.NavBackStackEntry
 import androidx.navigation.NavType
 import androidx.navigation.navArgument
-import com.mirego.declarative.navigation.PilotNavigationManager
-import com.mirego.declarative.navigation.PilotNavigationRoute
+import com.mirego.pilot.navigation.PilotNavigationManager
+import com.mirego.pilot.navigation.PilotNavigationRoute
 
 private const val UNIQUE_ID_PARAM = "uniqueId"
 

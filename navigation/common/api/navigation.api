@@ -55,3 +55,20 @@ public abstract interface class com/mirego/pilot/navigation/PilotNavigationRoute
 	public abstract fun getUniqueId ()Ljava/lang/String;
 }
 
+public final class com/mirego/pilot/navigation/compose/PilotBackHandlerKt {
+	public static final fun PilotBackHandler (Landroidx/navigation/NavHostController;Lcom/mirego/pilot/navigation/PilotNavigationManager;Ljava/lang/String;)V
+}
+
+public class com/mirego/pilot/navigation/compose/PilotNavControllerNavigationListener : com/mirego/pilot/navigation/PilotNavigationListener {
+	public fun <init> (Landroidx/navigation/NavController;)V
+	public fun pop ()V
+	public fun popTo (Lcom/mirego/pilot/navigation/PilotNavigationRoute;Z)V
+	public fun push (Lcom/mirego/pilot/navigation/PilotNavigationRoute;)V
+}
+
+public final class com/mirego/pilot/navigation/compose/PilotNavigationHelpersKt {
+	public static final fun findRoute (Lcom/mirego/pilot/navigation/PilotNavigationManager;Landroidx/navigation/NavBackStackEntry;)Lcom/mirego/pilot/navigation/PilotNavigationRoute;
+	public static final fun getPilotNavArguments ()Ljava/util/List;
+	public static final fun pilotNavRoute (Ljava/lang/String;)Ljava/lang/String;
+}
+

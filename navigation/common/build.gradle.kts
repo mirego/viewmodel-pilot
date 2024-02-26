@@ -31,6 +31,10 @@ kotlin {
             dependencies {
                 implementation(libs.kotlin.stdlib.jdk8)
                 implementation(libs.bundles.lifecycle)
+                implementation(libs.androidx.compose.ui)
+                implementation(libs.androidx.activity.compose)
+                implementation(libs.androidx.navigation.runtime)
+                implementation(libs.androidx.navigation.compose)
             }
         }
     }

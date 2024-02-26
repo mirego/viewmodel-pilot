@@ -19,12 +19,10 @@ rootProject.name = "viewmodel-pilot"
 
 include(
     ":navigation",
-    ":navigation-compose",
     ":viewmodel",
 )
 
 project(":navigation").projectDir = File("navigation/common")
-project(":navigation-compose").projectDir = File("navigation/compose")
 project(":viewmodel").projectDir = File("viewmodel/common")
 
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")

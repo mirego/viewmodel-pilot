@@ -1,5 +1,5 @@
 Pod::Spec.new do |spec|
-  spec.name                     = "ViewModel"
+  spec.name                     = "Pilot"
   spec.version                  = "0.1.0"
   spec.homepage                 = "https://github.com/mirego/viewmodel-pilot"
   spec.source                   = { :git => "https://github.com/mirego/viewmodel-pilot", :tag => "#{spec.version}" }

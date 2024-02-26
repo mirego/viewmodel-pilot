@@ -18,6 +18,14 @@ ktlint {
 
 android {
     namespace = "com.mirego.pilot.navigation"
+
+    buildFeatures {
+        compose = true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = libs.versions.androidx.compose.compiler.get()
+    }
 }
 
 kotlin {

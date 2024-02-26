@@ -1,4 +1,5 @@
 public class com/mirego/pilot/navigation/DefaultPilotNavigationManager : com/mirego/pilot/navigation/PilotNavigationManager {
+	public static final field $stable I
 	public fun <init> (Lkotlinx/coroutines/CoroutineScope;Lcom/mirego/pilot/navigation/PilotNavigationManager;)V
 	public synthetic fun <init> (Lkotlinx/coroutines/CoroutineScope;Lcom/mirego/pilot/navigation/PilotNavigationManager;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun currentRoutes ()Ljava/util/List;
@@ -14,17 +15,20 @@ public class com/mirego/pilot/navigation/DefaultPilotNavigationManager : com/mir
 }
 
 public abstract class com/mirego/pilot/navigation/EnumPilotNavigationRoute : com/mirego/pilot/navigation/PilotNavigationRoute {
+	public static final field $stable I
 	public fun <init> (Ljava/lang/Enum;)V
 	public fun getName ()Ljava/lang/String;
 	public fun getUniqueId ()Ljava/lang/String;
 }
 
 public abstract class com/mirego/pilot/navigation/PilotActionNavigationListener {
+	public static final field $stable I
 	public fun <init> ()V
 	public abstract fun handleAction (Ljava/lang/Object;)V
 }
 
 public abstract class com/mirego/pilot/navigation/PilotNavigationListener {
+	public static final field $stable I
 	public fun <init> ()V
 	public abstract fun pop ()V
 	public abstract fun popTo (Lcom/mirego/pilot/navigation/PilotNavigationRoute;Z)V
@@ -32,6 +36,7 @@ public abstract class com/mirego/pilot/navigation/PilotNavigationListener {
 }
 
 public abstract class com/mirego/pilot/navigation/PilotNavigationManager {
+	public static final field $stable I
 	public fun <init> ()V
 	public abstract fun currentRoutes ()Ljava/util/List;
 	public abstract fun findRoute (Ljava/lang/String;)Lcom/mirego/pilot/navigation/PilotNavigationRoute;
@@ -56,10 +61,11 @@ public abstract interface class com/mirego/pilot/navigation/PilotNavigationRoute
 }
 
 public final class com/mirego/pilot/navigation/compose/PilotBackHandlerKt {
-	public static final fun PilotBackHandler (Landroidx/navigation/NavHostController;Lcom/mirego/pilot/navigation/PilotNavigationManager;Ljava/lang/String;)V
+	public static final fun PilotBackHandler (Landroidx/navigation/NavHostController;Lcom/mirego/pilot/navigation/PilotNavigationManager;Ljava/lang/String;Landroidx/compose/runtime/Composer;I)V
 }
 
 public class com/mirego/pilot/navigation/compose/PilotNavControllerNavigationListener : com/mirego/pilot/navigation/PilotNavigationListener {
+	public static final field $stable I
 	public fun <init> (Landroidx/navigation/NavController;)V
 	public fun pop ()V
 	public fun popTo (Lcom/mirego/pilot/navigation/PilotNavigationRoute;Z)V

@@ -11,6 +11,8 @@ Pod::Spec.new do |spec|
   
   spec.platform = :ios, "15.0"
 
+  spec.dependency "Shared"
+
   spec.subspec "Navigation" do |subspec|
     subspec.source_files  = "navigation/ios/**/*.swift"
   end

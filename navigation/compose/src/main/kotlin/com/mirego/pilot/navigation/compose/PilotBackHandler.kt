@@ -1,4 +1,4 @@
-package com.mirego.pilot.navigation.android
+package com.mirego.pilot.navigation.compose
 
 import androidx.activity.compose.BackHandler
 import androidx.compose.runtime.Composable

@@ -1,4 +1,4 @@
-package com.mirego.pilot.navigation.android
+package com.mirego.pilot.navigation.compose
 
 import androidx.navigation.NavController
 import com.mirego.pilot.navigation.PilotNavigationListener

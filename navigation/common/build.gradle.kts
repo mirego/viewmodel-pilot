@@ -18,9 +18,6 @@ ktlint {
 
 android {
     namespace = "com.mirego.pilot.navigation"
-    sourceSets {
-        getByName("main").resources.srcDir("src/commonMain/resources/")
-    }
 }
 
 kotlin {

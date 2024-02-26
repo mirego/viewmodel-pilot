@@ -9,7 +9,7 @@ plugins {
 group = "com.mirego.pilot"
 
 android {
-    namespace = "com.mirego.pilot.navigation.android"
+    namespace = "com.mirego.pilot.navigation.compose"
     defaultConfig {
         vectorDrawables {
             useSupportLibrary = true
@@ -60,9 +60,21 @@ repositories {
 }
 
 dependencies {
-    implementation(projects.navigationCommon)
+    implementation(projects.navigation)
     implementation(libs.androidx.compose.ui)
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.navigation.runtime)
     implementation(libs.androidx.navigation.compose)
+}
+
+
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("release") {
+                from(components["release"])
+                artifactId = "navigation-compose"
+            }
+        }
+    }
 }

@@ -1,0 +1,47 @@
+[versions]
+kotlin = "1.9.22"
+agp = "8.2.2"
+ktlint = "12.1.0"
+ksp = "1.9.22-1.0.17"
+binary-compatibility = "0.13.2"
+androidx-compose-runtime = "1.6.2"
+androidx-lifecycle = "2.7.0"
+androidx-navigation = "2.7.7"
+androidx-activity-compose = "1.8.2"
+androidx-compose-compiler = "1.5.9"
+kotlinx-coroutines = "1.7.3"
+mirego-publish = "1.5"
+
+[libraries]
+kotlin-stdlib-jdk8 = { module = "org.jetbrains.kotlin:kotlin-stdlib-jdk8", version.ref = "kotlin" }
+kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinx-coroutines" }
+
+androidx-compose-ui = { module = "androidx.compose.ui:ui", version.ref = "androidx-compose-runtime" }
+
+androidx-lifecycle-common = { module = "androidx.lifecycle:lifecycle-common", version.ref = "androidx-lifecycle" }
+androidx-lifecycle-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel", version.ref = "androidx-lifecycle" }
+androidx-lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "androidx-lifecycle" }
+androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activity-compose" }
+androidx-navigation-runtime = { module = "androidx.navigation:navigation-runtime", version.ref = "androidx-navigation" }
+androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "androidx-navigation" }
+
+android-gradle-plugin = { group = "com.android.tools.build", name = "gradle", version.ref = "agp" }
+kotlin-gradle-plugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
+ksp-gradle-plugin = { group = "com.google.devtools.ksp", name = "com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+android-library = { id = "com.android.library", version.ref = "agp" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
+kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+ktlint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlint" }
+kotlinx-binaryCompatibilityValidator = { id = "org.jetbrains.kotlinx.binary-compatibility-validator", version.ref = "binary-compatibility" }
+mirego-publish = { id = "mirego.publish", version.ref = "mirego-publish" }
+
+[bundles]
+lifecycle = [
+    "androidx-lifecycle-common",
+    "androidx-lifecycle-viewmodel",
+    "androidx-lifecycle-viewmodel-ktx"
+]

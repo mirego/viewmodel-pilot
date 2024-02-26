@@ -1,6 +1,6 @@
 <div align="center">
   <p>Viewmodel pilot is a library that allows you to share viewmodels and navigation on android and iOS</p>
-  <a href="http://kotlinlang.org"><img src="https://img.shields.io/badge/kotlin-1.9.21-blue.svg?logo=kotlin" /></a>
+  <a href="http://kotlinlang.org"><img src="https://img.shields.io/badge/kotlin-1.9.22-blue.svg?logo=kotlin" /></a>
   <a href="https://opensource.org/licenses/BSD-3-Clause"><img src="https://img.shields.io/badge/License-BSD_3--Clause-blue.svg" /></a>
 </div>
 

@@ -1,7 +1,7 @@
 import Foundation
 import SwiftUI
 
-public enum NavigationType<Screen, NavModifier: ViewModifier> {
+public enum PilotNavigationType<Screen, NavModifier: ViewModifier> {
     case root
     case push(screen: Screen, onDismiss: () -> Void)
     case sheet(screen: Screen, data: NavigationTypeData<NavModifier>)

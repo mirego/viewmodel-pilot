@@ -14,21 +14,21 @@ class NavigationState<
 
     typealias NavigationStateTyped = NavigationState<ScreenData, Route, Action, NavModifier>
 
-    let navigation: NavigationType<ScreenData, NavModifier>
+    let navigation: PilotNavigationType<ScreenData, NavModifier>
     let route: Route?
 
     @Published var child: NavigationStateTyped?
     @Published var navigationDismissTriggered = false
 
-    private let buildNavigation: (([Route], Route) -> NavigationType<ScreenData, NavModifier>)?
+    private let buildNavigation: (([Route], Route) -> PilotNavigationType<ScreenData, NavModifier>)?
     private let navigationManager: PilotNavigationManager<Route, Action>?
     private let actionListener: ActionListener<Route, Action>
     private var lastNavigationDate: Foundation.Date?
 
     init(
-        navigation: NavigationType<ScreenData, NavModifier>,
+        navigation: PilotNavigationType<ScreenData, NavModifier>,
         route: Route?,
-        buildNavigation: (([Route], Route) -> NavigationType<ScreenData, NavModifier>)? = nil,
+        buildNavigation: (([Route], Route) -> PilotNavigationType<ScreenData, NavModifier>)? = nil,
         handleAction: ((Action) -> Void)? = nil,
         navigationManager: PilotNavigationManager<Route, Action>? = nil
     ) {

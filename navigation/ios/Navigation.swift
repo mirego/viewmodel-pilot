@@ -2,10 +2,10 @@ import SwiftUI
 import Shared
 
 public extension View {
-    func navigation<ScreenData, Route: PilotNavigationRoute, Action: AnyObject, ScreenView: View, NavModifier: ViewModifier>(
+    func pilotNavigation<ScreenData, Route: PilotNavigationRoute, Action: AnyObject, ScreenView: View, NavModifier: ViewModifier>(
         navigationManager: PilotNavigationManager<Route, Action>,
         @ViewBuilder buildView: @escaping (ScreenData) -> ScreenView,
-        buildNavigation: @escaping ([Route], Route) -> NavigationType<ScreenData, NavModifier>,
+        buildNavigation: @escaping ([Route], Route) -> PilotNavigationType<ScreenData, NavModifier>,
         handleAction: ((Action) -> Void)? = nil
     ) -> some View {
         modifier(
@@ -26,13 +26,13 @@ private struct NavigationModifier<ScreenData, Route: PilotNavigationRoute, Actio
 
     init(
         buildView: @escaping (ScreenData) -> ScreenView,
-        buildNavigation: @escaping ([Route], Route) -> NavigationType<ScreenData, NavModifier>,
+        buildNavigation: @escaping ([Route], Route) -> PilotNavigationType<ScreenData, NavModifier>,
         handleAction: ((Action) -> Void)? = nil,
         navigationManager: PilotNavigationManager<Route, Action>? = nil
     ) {
         self.buildView = buildView
         let rootNavigationState = NavigationState<ScreenData, Route, Action, NavModifier>(
-            navigation: NavigationType.root,
+            navigation: PilotNavigationType.root,
             route: nil,
             buildNavigation: buildNavigation,
             handleAction: handleAction,

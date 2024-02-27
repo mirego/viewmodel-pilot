@@ -69,8 +69,8 @@ struct NavigationContainerView<
                     content: { childView }
                 )
             )
-            .environment(\.navigationDismissTriggered, navigateState.navigationDismissTriggered)
-            .environment(\.presentedRouteName, navigateState.child?.route?.name)
+            .environment(\.pilotNavigationDismissTriggered, navigateState.navigationDismissTriggered)
+            .environment(\.presentedPilotRouteName, navigateState.child?.route?.name)
     }
 
     private var embedInNavigationView: Bool {

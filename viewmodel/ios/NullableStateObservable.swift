@@ -28,14 +28,18 @@ public class NullableStateObservable<State>: ObservableObject {
         self.animation = animation
         self.lastState = stateFlow.value
 
-        task = Task { @MainActor [weak self] in
+        task = Task { [weak self] in
             for await newState in stateFlow.dropFirst() {
                 if let animation = self?.animation?(lastState, newState) {
-                    withAnimation(animation) {
-                        self?.objectWillChange.send()
+                    DispatchQueue.main.async {
+                        withAnimation(animation) {
+                            self?.objectWillChange.send()
+                        }
                     }
                 } else {
-                    self?.objectWillChange.send()
+                    DispatchQueue.main.async {
+                        self?.objectWillChange.send()
+                    }
                 }
                 self?.lastState = newState
             }

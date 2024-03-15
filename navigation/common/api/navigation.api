@@ -5,7 +5,7 @@ public class com/mirego/pilot/navigation/DefaultPilotNavigationManager : com/mir
 	public fun currentRoutes ()Ljava/util/List;
 	public fun findRoute (Ljava/lang/String;)Lcom/mirego/pilot/navigation/PilotNavigationRoute;
 	public fun handleAction (Ljava/lang/Object;)V
-	public fun pop ()V
+	public fun pop (Z)V
 	public fun popToId (Ljava/lang/String;Z)V
 	public fun popToName (Ljava/lang/String;Z)V
 	public fun popToRoot ()V
@@ -43,7 +43,8 @@ public abstract class com/mirego/pilot/navigation/PilotNavigationManager {
 	public final fun getActionListener ()Lcom/mirego/pilot/navigation/PilotActionNavigationListener;
 	public final fun getListener ()Lcom/mirego/pilot/navigation/PilotNavigationListener;
 	public abstract fun handleAction (Ljava/lang/Object;)V
-	public abstract fun pop ()V
+	public abstract fun pop (Z)V
+	public static synthetic fun pop$default (Lcom/mirego/pilot/navigation/PilotNavigationManager;ZILjava/lang/Object;)V
 	public abstract fun popToId (Ljava/lang/String;Z)V
 	public abstract fun popToName (Ljava/lang/String;Z)V
 	public abstract fun popToRoot ()V

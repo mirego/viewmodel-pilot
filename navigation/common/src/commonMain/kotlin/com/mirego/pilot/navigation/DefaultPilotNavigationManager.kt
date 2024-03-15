@@ -29,7 +29,11 @@ public open class DefaultPilotNavigationManager<ROUTE : PilotNavigationRoute, AC
         }
     }
 
-    override fun pop() {
+    override fun pop(locally: Boolean) {
+        if (!locally && parentNavigationManager != null) {
+            parentNavigationManager.pop(locally = locally)
+            return
+        }
         internalPop(callListener = true)
     }
 

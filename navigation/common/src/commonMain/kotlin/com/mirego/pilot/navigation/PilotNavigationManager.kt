@@ -6,7 +6,7 @@ public abstract class PilotNavigationManager<ROUTE : PilotNavigationRoute, ACTIO
     public abstract fun <T : ROUTE> findRoute(uniqueId: String): T?
 
     public abstract fun push(route: ROUTE, locally: Boolean = false)
-    public abstract fun pop()
+    public abstract fun pop(locally: Boolean = false)
     public abstract fun popToId(uniqueId: String, inclusive: Boolean)
     public abstract fun popToName(name: String, inclusive: Boolean)
     public abstract fun popToRoot()

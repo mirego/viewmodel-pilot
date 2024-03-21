@@ -2,9 +2,6 @@
 
 plugins {
     id("buildlogic.kotlin.multiplatform")
-    alias(libs.plugins.ktlint)
-    alias(libs.plugins.kotlinx.binaryCompatibilityValidator)
-    alias(libs.plugins.mirego.publish)
 }
 
 group = "com.mirego.pilot"

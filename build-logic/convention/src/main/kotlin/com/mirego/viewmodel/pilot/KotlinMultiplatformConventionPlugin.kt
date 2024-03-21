@@ -13,7 +13,12 @@ class KotlinMultiplatformConventionPlugin : Plugin<Project> {
             with(pluginManager) {
                 apply("com.android.library")
                 apply("org.jetbrains.kotlin.multiplatform")
+                apply("org.jlleitschuh.gradle.ktlint")
+                apply("org.jetbrains.kotlinx.binary-compatibility-validator")
+                apply("mirego.publish")
             }
+
+            configureApiValidationPlugin()
 
             extensions.configure<LibraryExtension> {
                 configureKotlinAndroid(this)

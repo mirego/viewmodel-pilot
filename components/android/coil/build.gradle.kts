@@ -25,3 +25,14 @@ dependencies {
     implementation(libs.androidx.compose.ui)
     implementation(libs.coil.compose)
 }
+
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("release") {
+                from(components["release"])
+                artifactId = "components-coil"
+            }
+        }
+    }
+}

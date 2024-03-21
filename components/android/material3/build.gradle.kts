@@ -28,3 +28,14 @@ dependencies {
     implementation(libs.androidx.lifecycle.common)
     implementation(libs.androidx.compose.material3)
 }
+
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("release") {
+                from(components["release"])
+                artifactId = "components-material3"
+            }
+        }
+    }
+}

@@ -18,7 +18,7 @@ import com.mirego.pilot.components.PilotRemoteImage
 import com.mirego.pilot.components.ui.pilotImageResourcePainter
 
 @Composable
-public fun PilotRemoteImageView(
+public fun PilotRemoteImage(
     pilotRemoteImage: PilotRemoteImage,
     modifier: Modifier = Modifier,
     onState: ((AsyncImagePainter.State) -> Unit)? = null,

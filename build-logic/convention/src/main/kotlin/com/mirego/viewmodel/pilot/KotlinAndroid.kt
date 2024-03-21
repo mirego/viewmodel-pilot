@@ -33,6 +33,10 @@ private fun Project.configureKotlin() {
     tasks.withType<KotlinCompile>().configureEach {
         kotlinOptions {
             jvmTarget = Constants.JAVA_VERSION.toString()
+            freeCompilerArgs += listOf(
+                "-Xopt-in=kotlin.RequiresOptIn",
+                "-Xopt-in=com.mirego.pilot.components.InternalPilotComponentsApi"
+            )
         }
     }
 }

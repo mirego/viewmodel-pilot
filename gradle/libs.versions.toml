@@ -3,19 +3,24 @@ kotlin = "1.9.22"
 agp = "8.2.2"
 ktlint = "12.1.0"
 binary-compatibility = "0.13.2"
-androidx-compose-runtime = "1.6.2"
+androidx-compose-runtime = "1.6.3"
+androidx-compose-material3 = "1.2.1"
 androidx-lifecycle = "2.7.0"
 androidx-navigation = "2.7.7"
 androidx-activity-compose = "1.8.2"
 androidx-compose-compiler = "1.5.9"
 kotlinx-coroutines = "1.7.3"
 mirego-publish = "1.5"
+coil = "2.5.0"
 
 [libraries]
 kotlin-stdlib-jdk8 = { module = "org.jetbrains.kotlin:kotlin-stdlib-jdk8", version.ref = "kotlin" }
 kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinx-coroutines" }
 
+androidx-compose-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "androidx-compose-runtime" }
 androidx-compose-ui = { module = "androidx.compose.ui:ui", version.ref = "androidx-compose-runtime" }
+androidx-compose-material3 = { module = "androidx.compose.material3:material3", version.ref = "androidx-compose-material3" }
+
 
 androidx-lifecycle-common = { module = "androidx.lifecycle:lifecycle-common", version.ref = "androidx-lifecycle" }
 androidx-lifecycle-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel", version.ref = "androidx-lifecycle" }
@@ -24,8 +29,12 @@ androidx-activity-compose = { module = "androidx.activity:activity-compose", ver
 androidx-navigation-runtime = { module = "androidx.navigation:navigation-runtime", version.ref = "androidx-navigation" }
 androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "androidx-navigation" }
 
+coil = { module = "io.coil-kt:coil", version.ref = "coil" }
+coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
+
 android-gradle-plugin = { group = "com.android.tools.build", name = "gradle", version.ref = "agp" }
 kotlin-gradle-plugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
+kotlinx-binaryCompatibilityValidator = { group = "org.jetbrains.kotlinx", name = "binary-compatibility-validator", version.ref = "binary-compatibility" }
 
 [plugins]
 android-library = { id = "com.android.library", version.ref = "agp" }

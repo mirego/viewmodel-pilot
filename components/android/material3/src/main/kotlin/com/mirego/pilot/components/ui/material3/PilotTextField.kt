@@ -15,8 +15,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.text.TextStyle
-import com.mirego.pilot.components.ui.PilotFormattedVisualTransformation
 import com.mirego.pilot.components.PilotTextField
+import com.mirego.pilot.components.ui.PilotFormattedVisualTransformation
 import com.mirego.pilot.components.ui.mergeWith
 import com.mirego.pilot.components.ui.type.composeValue
 

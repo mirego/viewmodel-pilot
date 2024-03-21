@@ -333,7 +333,7 @@ public final class com/mirego/pilot/components/ui/DefaultPilotTextStyleResourceP
 	public fun textStyleForResource (Lcom/mirego/pilot/components/PilotTextStyleResource;Landroidx/compose/runtime/Composer;I)Landroidx/compose/ui/text/TextStyle;
 }
 
-public final class com/mirego/pilot/components/ui/PilotButtonViewKt {
+public final class com/mirego/pilot/components/ui/PilotButtonKt {
 	public static final fun PilotButton (Lcom/mirego/pilot/components/PilotButton;Landroidx/compose/ui/Modifier;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
 }
 

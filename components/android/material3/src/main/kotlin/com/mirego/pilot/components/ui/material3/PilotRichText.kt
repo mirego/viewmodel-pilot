@@ -19,8 +19,8 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.unit.takeOrElse
-import com.mirego.pilot.components.ui.LocalPilotTextStyleResourceProvider
 import com.mirego.pilot.components.PilotRichText
+import com.mirego.pilot.components.ui.LocalPilotTextStyleResourceProvider
 import com.mirego.pilot.components.ui.defaultImageInlineTextContent
 import com.mirego.pilot.components.ui.toAnnotatedString
 import com.mirego.pilot.components.ui.toBasicInlineContent

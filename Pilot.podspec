@@ -1,6 +1,10 @@
+require_relative 'podspec_versions.rb'
+
+properties = load_properties('gradle.properties')
+
 Pod::Spec.new do |spec|
   spec.name                     = "Pilot"
-  spec.version                  = "0.1.0"
+  spec.version                  = "#{properties['version']}"
   spec.homepage                 = "https://github.com/mirego/viewmodel-pilot"
   spec.source                   = { :git => "https://github.com/mirego/viewmodel-pilot", :tag => "#{spec.version}" }
   spec.authors                  = { "Nicolas Presseault" => "npresseault@mirego.com" }
@@ -20,4 +24,16 @@ Pod::Spec.new do |spec|
   spec.subspec "ViewModel" do |subspec|
     subspec.source_files  = "viewmodel/ios/**/*.swift"
   end
+
+  spec.subspec "Components" do |subspec|
+    subspec.source_files  = "components/ios/base/**/*.swift"
+    subspec.dependency 'Pilot/ViewModel'
+  end
+
+  spec.subspec "Components.Kingfisher" do |subspec|
+    subspec.source_files  = "components/ios/kingfisher/**/*.swift"
+    subspec.dependency 'Pilot/Components'
+    subspec.dependency 'Kingfisher', '~> 7.10.1'
+  end
+
 end

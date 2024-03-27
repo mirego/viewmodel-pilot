@@ -10,13 +10,12 @@ import androidx.compose.ui.semantics.onClick
 import androidx.compose.ui.semantics.testTag
 import com.mirego.pilot.components.accessibility.PilotAccessibilityInfo
 
-public fun Modifier.clearAndSetAccessibility(
-    accessibilityInfo: PilotAccessibilityInfo?,
-): Modifier = accessibilityInfo?.let {
-    clearAndSetSemantics {
-        accessibility(it)
-    }
-} ?: this
+public fun Modifier.clearAndSetAccessibility(accessibilityInfo: PilotAccessibilityInfo?): Modifier =
+    accessibilityInfo?.let {
+        clearAndSetSemantics {
+            accessibility(it)
+        }
+    } ?: this
 
 private fun SemanticsPropertyReceiver.accessibility(accessibilityInfo: PilotAccessibilityInfo) {
     accessibilityInfo.label?.let {

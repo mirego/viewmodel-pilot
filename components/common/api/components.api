@@ -202,17 +202,17 @@ public final class com/mirego/pilot/components/accessibility/PilotAccessibilityA
 public final class com/mirego/pilot/components/accessibility/PilotAccessibilityInfo {
 	public static final field $stable I
 	public fun <init> ()V
-	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lcom/mirego/pilot/components/accessibility/PilotAccessibilityAction;Ljava/util/List;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lcom/mirego/pilot/components/accessibility/PilotAccessibilityAction;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component2 ()Ljava/lang/String;
-	public final fun component3 ()Lcom/mirego/pilot/components/accessibility/PilotAccessibilityAction;
+	public final fun component3 ()Ljava/lang/String;
 	public final fun component4 ()Ljava/util/List;
-	public final fun copy (Ljava/lang/String;Ljava/lang/String;Lcom/mirego/pilot/components/accessibility/PilotAccessibilityAction;Ljava/util/List;)Lcom/mirego/pilot/components/accessibility/PilotAccessibilityInfo;
-	public static synthetic fun copy$default (Lcom/mirego/pilot/components/accessibility/PilotAccessibilityInfo;Ljava/lang/String;Ljava/lang/String;Lcom/mirego/pilot/components/accessibility/PilotAccessibilityAction;Ljava/util/List;ILjava/lang/Object;)Lcom/mirego/pilot/components/accessibility/PilotAccessibilityInfo;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)Lcom/mirego/pilot/components/accessibility/PilotAccessibilityInfo;
+	public static synthetic fun copy$default (Lcom/mirego/pilot/components/accessibility/PilotAccessibilityInfo;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;ILjava/lang/Object;)Lcom/mirego/pilot/components/accessibility/PilotAccessibilityInfo;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getAction ()Lcom/mirego/pilot/components/accessibility/PilotAccessibilityAction;
 	public final fun getCustomActions ()Ljava/util/List;
+	public final fun getHint ()Ljava/lang/String;
 	public final fun getIdentifier ()Ljava/lang/String;
 	public final fun getLabel ()Ljava/lang/String;
 	public fun hashCode ()I

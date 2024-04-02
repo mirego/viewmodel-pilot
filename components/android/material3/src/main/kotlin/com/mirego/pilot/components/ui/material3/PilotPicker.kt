@@ -9,9 +9,6 @@ import androidx.compose.material3.MenuItemColors
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.Role
 import com.mirego.pilot.components.PilotPicker
@@ -19,6 +16,8 @@ import com.mirego.pilot.components.PilotPicker
 @Composable
 public fun <LABEL : Any, ITEM : Any> PilotPicker(
     pilotPicker: PilotPicker<LABEL, ITEM>,
+    expanded: Boolean,
+    onExpandedChange: (Boolean) -> Unit,
     modifier: Modifier = Modifier,
     dropDownModifier: Modifier = Modifier,
     dismissOnItemClick: Boolean = false,
@@ -26,13 +25,12 @@ public fun <LABEL : Any, ITEM : Any> PilotPicker(
     itemColors: @Composable (label: LABEL) -> Unit,
     item: @Composable (item: ITEM) -> Unit,
 ) {
-    var expanded by remember { mutableStateOf(false) }
     Box {
         Box(
             modifier = modifier
                 .clickable(
-                    onClick = { expanded = !expanded },
-                    role = Role.Button,
+                    onClick = { onExpandedChange(!expanded) },
+                    role = Role.DropdownList,
                 ),
         ) {
             val labelValue by pilotPicker.label.collectAsState()
@@ -41,7 +39,7 @@ public fun <LABEL : Any, ITEM : Any> PilotPicker(
         // button unselected
         DropdownMenu(
             expanded = expanded,
-            onDismissRequest = { expanded = false },
+            onDismissRequest = { onExpandedChange(false) },
             modifier = dropDownModifier,
         ) {
             val itemsValue by pilotPicker.items.collectAsState()
@@ -53,7 +51,7 @@ public fun <LABEL : Any, ITEM : Any> PilotPicker(
                     onClick = {
                         pilotPicker.onSelectedIndex(index)
                         if (dismissOnItemClick) {
-                            expanded = false
+                            onExpandedChange(false)
                         }
                     },
                     colors = colors,

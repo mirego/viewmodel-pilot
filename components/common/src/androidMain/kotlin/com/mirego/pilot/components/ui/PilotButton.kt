@@ -2,6 +2,7 @@ package com.mirego.pilot.components.ui
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -13,7 +14,7 @@ import com.mirego.pilot.components.PilotButton
 import com.mirego.pilot.components.ui.extensions.clearAndSetAccessibility
 
 @Composable
-public fun <C : Any> PilotButton(pilotButton: PilotButton<C>, modifier: Modifier = Modifier, content: @Composable (field: C) -> Unit) {
+public fun <C : Any> PilotButton(pilotButton: PilotButton<C>, modifier: Modifier = Modifier, content: @Composable BoxScope.(field: C) -> Unit) {
     val isEnabled by pilotButton.isEnabled.collectAsState()
     val accessibilityInfo by pilotButton.accessibilityInfo.collectAsState()
     Box(

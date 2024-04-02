@@ -1,5 +1,5 @@
 public final class com/mirego/pilot/components/ui/material3/PilotPickerKt {
-	public static final fun PilotPicker (Lcom/mirego/pilot/components/PilotPicker;Landroidx/compose/ui/Modifier;Landroidx/compose/ui/Modifier;ZLandroidx/compose/material3/MenuItemColors;Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
+	public static final fun PilotPicker (Lcom/mirego/pilot/components/PilotPicker;ZLkotlin/jvm/functions/Function1;Landroidx/compose/ui/Modifier;Landroidx/compose/ui/Modifier;ZLandroidx/compose/material3/MenuItemColors;Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
 }
 
 public final class com/mirego/pilot/components/ui/material3/PilotRichTextKt {

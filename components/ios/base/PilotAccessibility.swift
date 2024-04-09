@@ -135,7 +135,7 @@ extension View {
     }
 
     @ViewBuilder
-    func addAction(_ action: (() -> Bool)?) -> some View {
+    func addAction(_ action: (() -> KotlinBoolean)?) -> some View {
         if let action {
             accessibilityAction {
                 _ = action()
@@ -146,8 +146,8 @@ extension View {
     }
 
     func addNamedActions(_ actions: [PilotAccessibilityAction]) -> some View {
-        actions.reduce(AnyView(self)) { partialResult, action in
-            AnyView(partialResult.accessibilityAction(named: action.name) { action.action() })
+        actions.reduce(into: AnyView(self)) { partialResult, action in
+            AnyView(partialResult.accessibilityAction(named: action.label) { action.action() })
         }
     }
 }

@@ -100,7 +100,8 @@ extension View {
                 .addIdentifier(accessibilityInfo.identifier)
                 .addLabel(accessibilityInfo.label)
                 .addHint(accessibilityInfo.hint)
-                .addActions(accessibilityInfo.customActions)
+                .addAction(accessibilityInfo.action)
+                .addNamedActions(accessibilityInfo.customActions)
         } else {
             self
         }
@@ -134,11 +135,19 @@ extension View {
     }
 
     @ViewBuilder
-    func addActions(_ actions: [PilotAccessibilityAction]) -> some View {
-        ForEach(actions.indices, id: \.self) { index in
-            self.accessibilityAction(named: actions[index].label) {
-                _ = actions[index].action()
+    func addAction(_ action: (() -> Bool)?) -> some View {
+        if let action {
+            accessibilityAction {
+                _ = action()
             }
+        } else {
+            self
+        }
+    }
+
+    func addNamedActions(_ actions: [PilotAccessibilityAction]) -> some View {
+        actions.reduce(AnyView(self)) { partialResult, action in
+            AnyView(partialResult.accessibilityAction(named: action.name) { action.action() })
         }
     }
 }

@@ -6,7 +6,6 @@ import com.mirego.pilot.navigation.PilotNavigationRoute
 
 public open class PilotNavControllerNavigationListener<ROUTE : PilotNavigationRoute>(
     private val navController: NavController,
-    private val rootName: String,
 ) : PilotNavigationListener<ROUTE>() {
 
     override fun push(route: ROUTE) {
@@ -14,7 +13,7 @@ public open class PilotNavControllerNavigationListener<ROUTE : PilotNavigationRo
     }
 
     override fun pop() {
-        if (navController.currentBackStackEntry?.destination?.route != rootName) {
+        if (navController.previousBackStackEntry != null) {
             navController.popBackStack()
         }
     }

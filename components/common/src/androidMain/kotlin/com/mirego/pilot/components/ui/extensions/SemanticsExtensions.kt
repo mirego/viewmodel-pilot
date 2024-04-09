@@ -24,8 +24,8 @@ private fun SemanticsPropertyReceiver.accessibility(accessibilityInfo: PilotAcce
     accessibilityInfo.identifier?.let {
         testTag = it
     }
-    accessibilityInfo.hint?.let {
-        onClick(label = it, action = null)
+    if (accessibilityInfo.hint != null || accessibilityInfo.action != null) {
+        onClick(label = accessibilityInfo.hint, action = accessibilityInfo.action)
     }
     customActions = accessibilityInfo.customActions.map { accessibilityAction ->
         CustomAccessibilityAction(

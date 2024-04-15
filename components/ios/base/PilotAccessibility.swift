@@ -147,7 +147,7 @@ extension View {
 
     func addNamedActions(_ actions: [PilotAccessibilityAction]) -> some View {
         actions.reduce(into: AnyView(self)) { partialResult, action in
-            AnyView(partialResult.accessibilityAction(named: action.label) { action.action() })
+            partialResult = AnyView(partialResult.accessibilityAction(named: action.label) { action.action() })
         }
     }
 }

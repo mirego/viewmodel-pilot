@@ -20,7 +20,7 @@ class NavigationState<
     @Published var child: NavigationStateTyped?
     @Published var navigationDismissTriggered = false
 
-    private let buildNavigation: (([Route], Route) -> PilotNavigationType<ScreenData, NavModifier>)?
+    private let buildNavigation: (([Route], Route) -> PilotNavigationType<ScreenData, NavModifier>?)?
     private let navigationManager: PilotNavigationManager<Route, Action>?
     private let actionListener: ActionListener<Route, Action>
     private var lastNavigationDate: Foundation.Date?
@@ -28,7 +28,7 @@ class NavigationState<
     init(
         navigation: PilotNavigationType<ScreenData, NavModifier>,
         route: Route?,
-        buildNavigation: (([Route], Route) -> PilotNavigationType<ScreenData, NavModifier>)? = nil,
+        buildNavigation: (([Route], Route) -> PilotNavigationType<ScreenData, NavModifier>?)? = nil,
         handleAction: ((Action) -> Void)? = nil,
         navigationManager: PilotNavigationManager<Route, Action>? = nil
     ) {
@@ -49,10 +49,14 @@ class NavigationState<
     override func push(route: PilotNavigationRoute) {
         guard let buildNavigation else { fatalError("buildNavigation not set")}
         guard let route = route as? Route else { fatalError("Invalid route type")}
+        guard let navigation = buildNavigation(currentStack(), route) else {
+            navigationManager?.popToId(uniqueId: route.uniqueId, inclusive: true)
+            return
+        }
 
         dedounceNavigation { [weak self] in
             guard let self else { return }
-            top().child = NavigationState(navigation: buildNavigation(currentStack(), route), route: route)
+            top().child = NavigationState(navigation: navigation, route: route)
         }
     }
 

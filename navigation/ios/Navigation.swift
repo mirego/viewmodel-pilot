@@ -5,7 +5,7 @@ public extension View {
     func pilotNavigation<ScreenData, Route: PilotNavigationRoute, Action: AnyObject, ScreenView: View, NavModifier: ViewModifier>(
         navigationManager: PilotNavigationManager<Route, Action>,
         @ViewBuilder buildView: @escaping (ScreenData) -> ScreenView,
-        buildNavigation: @escaping ([Route], Route) -> PilotNavigationType<ScreenData, NavModifier>,
+        buildNavigation: @escaping ([Route], Route) -> PilotNavigationType<ScreenData, NavModifier>?,
         handleAction: ((Action) -> Void)? = nil
     ) -> some View {
         modifier(
@@ -26,7 +26,7 @@ private struct NavigationModifier<ScreenData, Route: PilotNavigationRoute, Actio
 
     init(
         buildView: @escaping (ScreenData) -> ScreenView,
-        buildNavigation: @escaping ([Route], Route) -> PilotNavigationType<ScreenData, NavModifier>,
+        buildNavigation: @escaping ([Route], Route) -> PilotNavigationType<ScreenData, NavModifier>?,
         handleAction: ((Action) -> Void)? = nil,
         navigationManager: PilotNavigationManager<Route, Action>? = nil
     ) {

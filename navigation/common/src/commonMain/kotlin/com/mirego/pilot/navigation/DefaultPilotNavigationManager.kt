@@ -24,8 +24,9 @@ public open class DefaultPilotNavigationManager<ROUTE : PilotNavigationRoute, AC
                 return@launch
             }
             listener?.let {
-                internalRouteList.add(route)
-                it.push(route)
+                if (it.push(route)) {
+                    internalRouteList.add(route)
+                }
             }
         }
     }

@@ -32,7 +32,7 @@ public abstract class com/mirego/pilot/navigation/PilotNavigationListener {
 	public fun <init> ()V
 	public abstract fun pop ()V
 	public abstract fun popTo (Lcom/mirego/pilot/navigation/PilotNavigationRoute;Z)V
-	public abstract fun push (Lcom/mirego/pilot/navigation/PilotNavigationRoute;)V
+	public abstract fun push (Lcom/mirego/pilot/navigation/PilotNavigationRoute;)Z
 }
 
 public abstract class com/mirego/pilot/navigation/PilotNavigationManager {
@@ -70,7 +70,7 @@ public class com/mirego/pilot/navigation/compose/PilotNavControllerNavigationLis
 	public fun <init> (Landroidx/navigation/NavController;)V
 	public fun pop ()V
 	public fun popTo (Lcom/mirego/pilot/navigation/PilotNavigationRoute;Z)V
-	public fun push (Lcom/mirego/pilot/navigation/PilotNavigationRoute;)V
+	public fun push (Lcom/mirego/pilot/navigation/PilotNavigationRoute;)Z
 }
 
 public final class com/mirego/pilot/navigation/compose/PilotNavigationHelpersKt {

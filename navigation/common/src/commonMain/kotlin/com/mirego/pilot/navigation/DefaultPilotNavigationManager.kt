@@ -23,9 +23,11 @@ public open class DefaultPilotNavigationManager<ROUTE : PilotNavigationRoute, AC
                 parentNavigationManager.push(route, locally = locally)
                 return@launch
             }
-
-            internalRouteList.add(route)
-            listener?.push(route)
+            listener?.let {
+                if (it.push(route)) {
+                    internalRouteList.add(route)
+                }
+            }
         }
     }
 
@@ -75,9 +77,14 @@ public open class DefaultPilotNavigationManager<ROUTE : PilotNavigationRoute, AC
 
             if (index != -1 && internalRouteList.isNotEmpty()) {
                 val effectiveIndex = index + if (inclusive) 0 else 1
-                internalRouteList.removeAll(internalRouteList.takeLast(internalRouteList.size - effectiveIndex))
+                val elementsToRemove = internalRouteList.takeLast(internalRouteList.size - effectiveIndex)
                 if (callListener) {
-                    listener?.popTo(navigationItem, inclusive = inclusive)
+                    listener?.let {
+                        internalRouteList.removeAll(elementsToRemove)
+                        listener?.popTo(navigationItem, inclusive = inclusive)
+                    }
+                } else {
+                    internalRouteList.removeAll(elementsToRemove)
                 }
             }
         }

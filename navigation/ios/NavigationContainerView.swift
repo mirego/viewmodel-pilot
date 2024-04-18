@@ -9,9 +9,13 @@ struct NavigationContainerView<
     ScreenView: View,
     NavModifier: ViewModifier
 >: View {
-    @ObservedObject var navigateState: NavigationState<ScreenData, Route, Action, NavModifier>
 
-    @ViewBuilder let buildView: (ScreenData) -> ScreenView
+    @Environment(\.presentedPilotRouteName) private var presentedRouteName
+
+    @ObservedObject private var navigateState: NavigationState<ScreenData, Route, Action, NavModifier>
+
+    @ViewBuilder private let buildView: (ScreenData) -> ScreenView
+
     let content: () -> Content
 
     init(navigateState: NavigationState<ScreenData, Route, Action, NavModifier>, buildView: @escaping (ScreenData) -> ScreenView, content: @escaping () -> Content) {
@@ -70,7 +74,7 @@ struct NavigationContainerView<
                 )
             )
             .environment(\.pilotNavigationDismissTriggered, navigateState.navigationDismissTriggered)
-            .environment(\.presentedPilotRouteName, navigateState.child?.route?.name)
+            .environment(\.presentedPilotRouteName, navigateState.child?.route?.name ?? presentedRouteName)
     }
 
     private var embedInNavigationView: Bool {

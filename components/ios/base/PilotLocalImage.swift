@@ -19,16 +19,24 @@ public struct PilotLocalImage: View {
     }
 
     public var body: some View {
-        imageConfigurations.reduce(pilotImageProvider.image(from: content.value.imageResource)) { current, config in
-            config(current)
+        if #available(iOS 14.0, *) {
+            configuredImage()
+                .accessibilityLabel(content.value.contentDescription ?? "")
+        } else {
+            configuredImage()
         }
-        .accessibilityLabel(content.value.contentDescription ?? "")
     }
 
     public func configureImage(_ block: @escaping ImageConfiguration) -> PilotLocalImage {
         var result = self
         result.imageConfigurations.append(block)
         return result
+    }
+    
+    private func configuredImage() -> some View {
+        imageConfigurations.reduce(pilotImageProvider.image(from: content.value.imageResource)) { current, config in
+            config(current)
+        }
     }
 }
 

@@ -1,6 +1,7 @@
 import Shared
 import SwiftUI
 
+@available(iOS 15.0, *)
 public struct PilotTextFieldView<Label>: View where Label: View {
     private let pilotTextField: PilotTextField
     private let placeholderBuilder: (String) -> Label
@@ -51,9 +52,10 @@ public struct PilotTextFieldView<Label>: View where Label: View {
     }
 }
 
+@available(iOS 15.0, *)
 struct ExtendedTapAreaTextFieldStyle: TextFieldStyle {
     @FocusState private var textFieldFocused: Bool
-
+    
     func _body(configuration: TextField<Self._Label>) -> some View {
         configuration
             .padding(.vertical, 16)

@@ -1,6 +1,7 @@
 import Shared
 import SwiftUI
 
+@available(iOS 15, *)
 public struct PilotRichTextView: View {
     @ObservedObject private var richText: StateObservable<PilotRichText>
 

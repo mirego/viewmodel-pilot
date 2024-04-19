@@ -1,6 +1,7 @@
 import Shared
 import SwiftUI
 
+@available(iOS 15, *)
 extension AttributedString {
     public init(text: String, ranges: [PilotRichTextRange], styleBuilder: (PilotTextStyleResource) -> PilotSpanStyle) {
         let attributedString = NSMutableAttributedString(string: text)

@@ -1,6 +1,7 @@
 import Shared
 import SwiftUI
 
+@available(iOS 14.0, *)
 extension View {
     public func pilotAccessibility(
         _ info: PilotAccessibilityInfo?,
@@ -27,6 +28,7 @@ extension View {
     }
 }
 
+@available(iOS 14.0, *)
 private struct NullableAccessibilityViewModifier: ViewModifier {
     private let traits: AccessibilityTraits
     private let childBehavior: AccessibilityChildBehavior
@@ -62,6 +64,7 @@ private struct NullableAccessibilityViewModifier: ViewModifier {
     }
 }
 
+@available(iOS 14.0, *)
 private struct AccessibilityViewModifier: ViewModifier {
     private let traits: AccessibilityTraits
     private let childBehavior: AccessibilityChildBehavior
@@ -89,6 +92,7 @@ private struct AccessibilityViewModifier: ViewModifier {
 
 extension View {
     @ViewBuilder
+    @available(iOS 14.0, *)
     func configureAccessibility(
         accessibilityInfo: PilotAccessibilityInfo?,
         traits: AccessibilityTraits,
@@ -108,6 +112,7 @@ extension View {
     }
 
     @ViewBuilder
+    @available(iOS 14.0, *)
     func addIdentifier(_ identifier: String?) -> some View {
         if let identifier {
             accessibilityIdentifier(identifier)
@@ -117,6 +122,7 @@ extension View {
     }
 
     @ViewBuilder
+    @available(iOS 14.0, *)
     func addLabel(_ label: String?) -> some View {
         if let label {
             accessibilityLabel(label)
@@ -126,6 +132,7 @@ extension View {
     }
 
     @ViewBuilder
+    @available(iOS 14.0, *)
     func addHint(_ hint: String?) -> some View {
         if let hint {
             accessibilityHint(hint)
@@ -145,6 +152,7 @@ extension View {
         }
     }
 
+    @available(iOS 14.0, *)
     func addNamedActions(_ actions: [PilotAccessibilityAction]) -> some View {
         actions.reduce(into: AnyView(self)) { partialResult, action in
             partialResult = AnyView(partialResult.accessibilityAction(named: action.label) { action.action() })

@@ -1,6 +1,7 @@
 import Shared
 import SwiftUI
 
+@available(iOS 14.0, *)
 public struct PilotPickerView<Label, LabelView, Item, ItemView>: View where Label: AnyObject, LabelView: View, Item: AnyObject, ItemView: View {
 
     private let picker: PilotPicker<Label, Item>

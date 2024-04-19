@@ -13,11 +13,12 @@ Pod::Spec.new do |spec|
   spec.static_framework         = true
   spec.source_files             = "ios/**/*.swift"
   
-  spec.platform = :ios, "15.0"
+  spec.platform = :ios, "13.0"
 
   spec.dependency "Shared"
 
   spec.subspec "Navigation" do |subspec|
+    subspec.platform = :ios, "14.0"
     subspec.source_files  = "navigation/ios/**/*.swift"
   end
   
@@ -31,6 +32,7 @@ Pod::Spec.new do |spec|
   end
 
   spec.subspec "Components.Kingfisher" do |subspec|
+    subspec.platform = :ios, "14.0"
     subspec.source_files  = "components/ios/kingfisher/**/*.swift"
     subspec.dependency 'Pilot/Components'
     subspec.dependency 'Kingfisher', '~> 7.10.1'

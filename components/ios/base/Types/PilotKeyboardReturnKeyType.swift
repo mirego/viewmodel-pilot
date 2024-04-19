@@ -2,6 +2,7 @@ import Shared
 import SwiftUI
 
 extension PilotKeyboardReturnKeyType {
+    @available(iOS 15.0, *)
     public var submitLabel: SubmitLabel {
         switch self {
         case .default:

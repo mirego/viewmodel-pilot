@@ -78,5 +78,4 @@ private fun AnnotatedString.Builder.addRangeStyle(range: PilotRichTextRange, tex
 private fun PilotRichTextRange.toComposeSpanStyle(textStyleResourceProvider: PilotTextStyleResourceProvider): SpanStyle? =
     when (val currentSpan = span) {
         is PilotRichTextSpan.Style -> textStyleResourceProvider.textStyleForResource(currentSpan.resource)?.toSpanStyle()
-        else -> null
     }

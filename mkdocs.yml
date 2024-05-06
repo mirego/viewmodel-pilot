@@ -1,0 +1,50 @@
+# Project information
+site_name: 'Pilot'
+site_description: 'A library that allows you to share viewmodels, navigation and components on android and iOS'
+site_author: 'Mirego'
+site_url: 'https://mirego.github.io/pilot/'
+edit_uri: 'tree/main/docs/'
+remote_branch: gh-pages
+
+docs_dir: build/docs
+
+# Repository
+repo_name: 'Pilot'
+repo_url: 'https://github.com/mirego/viewmodel-pilot'
+
+# Markdown extensions
+markdown_extensions:
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+      # Configuration
+theme:
+  name: 'material'
+  language: 'en'
+  icon:
+    logo: material/account-tie-hat
+  palette:
+    primary: 'black'
+    accent: 'deep orange'
+  font:
+    text: 'Roboto'
+    code: 'JetBrains Mono'
+
+# Navigation
+nav:
+  - 'Overview': index.md
+  - 'ViewModel':
+      - 'Guide': viewmodel.md
+      - 'API': api/viewmodel/
+  - 'Navigation':
+      - 'Guide': navigation.md
+      - 'API': api/navigation/
+  - 'Components':
+      - 'Guide': components.md
+      - 'API': api/components/
+      - 'API Coil': api/components-coil/
+      - 'API Material3': api/components-material3/
+  - 'Changelog': changelog.md
+  - 'Code of conduct': code-of-conduct.md

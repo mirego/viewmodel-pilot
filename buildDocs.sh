@@ -5,8 +5,7 @@ set -ex
 DOCS_ROOT=build/docs
 
 [ -d $DOCS_ROOT ] && rm -r $DOCS_ROOT
-mkdir $DOCS_ROOT
-mkdir $DOCS_ROOT/api
+mkdir -p $DOCS_ROOT/api
 
 # Build the docs with dokka
 ./gradlew dokkaHtmlMultiModule

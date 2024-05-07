@@ -1,7 +1,7 @@
 # ViewModel
 
 ## Usage
-### Common
+#### Common
 ```kotlin
 class YourViewModel : ViewModel() {
     val someData: StateFlow<String>  = MutableStateFlow("")
@@ -15,7 +15,7 @@ class YourViewModel : ViewModel() {
 }
 ```
 
-### Android
+#### Android
 Use the view model as you would use a regular android view model.
 ```kotlin
 @Composable
@@ -25,7 +25,7 @@ fun YourView(viewModel: YourViewModel) {
 }
 ```
 
-### iOS
+#### iOS
 ```swift
 struct YourView: View {
     @StateObject private var viewModelLifecycle: ViewModelLifecycleHandler<YourViewModel>
@@ -49,7 +49,7 @@ struct YourView: View {
 ```
 
 ## Installation
-### Common / Android
+#### Common / Android
 `build.gradle.kts`
 ```kotlin
 repositories {
@@ -61,7 +61,7 @@ dependencies {
 }
 ```
 
-### iOS
+#### iOS
 `Podfile`
 ```ruby
 pod 'Pilot/ViewModel', :git => 'git@github.com:mirego/viewmodel-pilot.git', :tag => '<version>', :inhibit_warnings => true

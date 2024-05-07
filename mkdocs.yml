@@ -14,12 +14,22 @@ repo_url: 'https://github.com/mirego/viewmodel-pilot'
 
 # Markdown extensions
 markdown_extensions:
+  - admonition
   - attr_list
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - codehilite:
+      guess_lang: false
+  - footnotes
+  - toc:
+      permalink: true
+  - pymdownx.betterem
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.details
 
-      # Configuration
 theme:
   name: 'material'
   language: 'en'

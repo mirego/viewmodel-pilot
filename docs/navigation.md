@@ -2,7 +2,7 @@
 
 ## Usage
 
-### Common
+#### Common
 
 First you must create a `NavigationRoute` sealed class that will represent all the possible routes
 of your application.
@@ -44,7 +44,7 @@ class YourNavigationManager(
 )
 ```
 
-### Android
+#### Android
 
 You must create a `YourActionNavigationListener` which will implement your external navigation
 actions.
@@ -103,7 +103,7 @@ fun YourNavigationHost(
 }
 ```
 
-### iOS
+#### iOS
 
 SwiftUI navigation works through the help of a View Modifier.
 
@@ -175,7 +175,7 @@ enum ViewModelHolder {
 
 ## Installation
 
-### Common / Android
+#### Common / Android
 
 `build.gradle.kts`
 

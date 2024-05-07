@@ -1,10 +1,42 @@
 <div align="center">
-  <p>Viewmodel pilot is a library that allows you to share viewmodels and navigation on android and iOS</p>
-  <a href="http://kotlinlang.org"><img src="https://img.shields.io/badge/kotlin-1.9.22-blue.svg?logo=kotlin" /></a>
-  <a href="https://opensource.org/licenses/BSD-3-Clause"><img src="https://img.shields.io/badge/License-BSD_3--Clause-blue.svg" /></a>
+  <p>Pilot is a library that allows you to share viewmodels, navigation and components on android and iOS</p>
+  <a href="http://kotlinlang.org"><img alt="kotlin 1.9.23" src="https://img.shields.io/badge/kotlin-1.9.23-blue.svg?logo=kotlin" /></a>
+  <a href="https://opensource.org/licenses/BSD-3-Clause"><img alt="BSD-3 Clause" src="https://img.shields.io/badge/License-BSD_3--Clause-blue.svg" /></a>
+  <a href="https://github.com/mirego/viewmodel-pilot/tags"><img alt="Latest"  src="https://img.shields.io/github/tag/mirego/viewmodel-pilot.svg?label=latest"></a>
+  <a href="https://github.com/mirego/viewmodel-pilot/actions/workflows/ci.yml"><img alt="CI" src="https://github.com/mirego/viewmodel-pilot/actions/workflows/ci.yml/badge.svg" /></a>
+  <a href="https://github.com/mirego/viewmodel-pilot/actions/workflows/release.yml"><img alt="Release" src="https://github.com/mirego/viewmodel-pilot/actions/workflows/release.yml/badge.svg" /></a>
 </div>
 
-# Viewmodel Pilot
+# Pilot
+
+## Kotlin versions
+
+Each [release](https://github.com/mirego/viewmodel-pilot/releases) outlines what version of the Kotlin compiler is used.
+
+<table>
+ <tr>
+  <td><img alt="kotlin 1.9.22" src="https://img.shields.io/badge/kotlin-1.9.22-blue.svg?logo=kotlin" /></td><td><img alt="0.1.0" src="https://img.shields.io/maven-metadata/v?label=mirego-maven&versionPrefix=0.1.0&metadataUrl=https%3A%2F%2Fmirego-maven.s3.amazonaws.com%2Fpublic%2Fcom%2Fmirego%2Fpilot%2Fviewmodel%2Fmaven-metadata.xml"></td>
+ </tr>
+ <tr>
+  <td><img alt="kotlin 1.9.23" src="https://img.shields.io/badge/kotlin-1.9.23-blue.svg?logo=kotlin" /></td><td><img alt="0.2.10" src="https://img.shields.io/maven-metadata/v?label=mirego-maven&versionPrefix=0.2.10&metadataUrl=https%3A%2F%2Fmirego-maven.s3.amazonaws.com%2Fpublic%2Fcom%2Fmirego%2Fpilot%2Fviewmodel%2Fmaven-metadata.xml"></td>
+ </tr>
+</table>
+
+## Libraries
+### [Viewmodel](docs/viewmodel.md)
+A tiny library that allows you to share view models between android and iOS.
+
+### [Navigation](docs/navigation.md)
+A library for Compose and SwiftUI that allows you to share navigation between android and iOS.
+
+### [Components](docs/components.md)
+A library that contains re-usable components that can be used in your view models.
+
+## Pre-requisites
+All libraries require:
+
+- [SKIE](https://skie.touchlab.co/) to be configured on your main project.
+- Your kotlin multiplatform iOS Framework to be called `Shared`.
 
 ## License
 

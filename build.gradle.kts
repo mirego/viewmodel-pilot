@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.ktlint) apply false
     alias(libs.plugins.mirego.publish) apply false
     alias(libs.plugins.kotlinx.binaryCompatibilityValidator) apply false
+    alias(libs.plugins.dokka)
 }
 
 allprojects {
@@ -22,4 +23,6 @@ subprojects {
     configure<org.jlleitschuh.gradle.ktlint.KtlintExtension> {
         version.set("1.1.0")
     }
+
+    apply(plugin = "org.jetbrains.dokka")
 }

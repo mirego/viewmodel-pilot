@@ -3,6 +3,9 @@ on:
   push:
     branches:
       - main
+  pull_request: # Testing
+    branches:
+      - '**'
 permissions:
   contents: write
 jobs:
@@ -14,15 +17,44 @@ jobs:
         run: |
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-      - uses: actions/setup-python@v5
+
+      - name: Setup python
+        uses: actions/setup-python@v5
         with:
           python-version: 3.x
       - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
+
+      - name: Setup java
+        uses: actions/setup-java@v3
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - name: Setup Gradle
+        uses: gradle/gradle-build-action@v2
+
       - uses: actions/cache@v4
         with:
           key: mkdocs-material-${{ env.cache_id }}
           path: .cache
           restore-keys: |
             mkdocs-material-
-      - run: pip install mkdocs-material
-      - run: mkdocs gh-deploy --force
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          python3 -m pip install --upgrade pip
+          python3 -m pip install mkdocs-material=="9.*"
+
+      - name: Build docs
+        run: ./buildDocs.sh
+
+      - name: Install mkdocs
+        run: pip install mkdocs-material
+
+      - name: Deploy mkdocs
+        run: mkdocs gh-deploy --force

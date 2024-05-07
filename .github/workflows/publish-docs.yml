@@ -3,9 +3,6 @@ on:
   push:
     branches:
       - main
-  pull_request: # Testing
-    branches:
-      - '**'
 permissions:
   contents: write
 jobs:

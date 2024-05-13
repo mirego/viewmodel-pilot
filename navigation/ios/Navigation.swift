@@ -6,14 +6,16 @@ public extension View {
         navigationManager: PilotNavigationManager<Route, Action>,
         @ViewBuilder buildView: @escaping (ScreenData) -> ScreenView,
         buildNavigation: @escaping ([Route], Route) -> PilotNavigationType<ScreenData, NavModifier>?,
-        handleAction: ((Action) -> Void)? = nil
+        handleAction: ((Action) -> Void)? = nil,
+        handlePopRoot: (() -> Void)? = nil
     ) -> some View {
         modifier(
             NavigationModifier<ScreenData, Route, Action, ScreenView, NavModifier>(
                 buildView: buildView,
                 buildNavigation: buildNavigation,
                 handleAction: handleAction,
-                navigationManager: navigationManager
+                navigationManager: navigationManager,
+                handlePopRoot: handlePopRoot
             )
         )
     }
@@ -28,7 +30,8 @@ private struct NavigationModifier<ScreenData, Route: PilotNavigationRoute, Actio
         buildView: @escaping (ScreenData) -> ScreenView,
         buildNavigation: @escaping ([Route], Route) -> PilotNavigationType<ScreenData, NavModifier>?,
         handleAction: ((Action) -> Void)? = nil,
-        navigationManager: PilotNavigationManager<Route, Action>? = nil
+        navigationManager: PilotNavigationManager<Route, Action>? = nil,
+        handlePopRoot: (() -> Void)?
     ) {
         self.buildView = buildView
         let rootNavigationState = NavigationState<ScreenData, Route, Action, NavModifier>(
@@ -36,7 +39,8 @@ private struct NavigationModifier<ScreenData, Route: PilotNavigationRoute, Actio
             route: nil,
             buildNavigation: buildNavigation,
             handleAction: handleAction,
-            navigationManager: navigationManager
+            navigationManager: navigationManager,
+            handlePopRoot: handlePopRoot
         )
         _rootState = StateObject(wrappedValue: rootNavigationState)
     }

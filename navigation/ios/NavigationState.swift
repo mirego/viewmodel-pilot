@@ -23,6 +23,7 @@ class NavigationState<
     private let buildNavigation: (([Route], Route) -> PilotNavigationType<ScreenData, NavModifier>?)?
     private let navigationManager: PilotNavigationManager<Route, Action>?
     private let actionListener: ActionListener<Route, Action>
+    private let handlePopRoot: (() -> Void)?
     private var lastNavigationDate: Foundation.Date?
 
     init(
@@ -30,12 +31,14 @@ class NavigationState<
         route: Route?,
         buildNavigation: (([Route], Route) -> PilotNavigationType<ScreenData, NavModifier>?)? = nil,
         handleAction: ((Action) -> Void)? = nil,
-        navigationManager: PilotNavigationManager<Route, Action>? = nil
+        navigationManager: PilotNavigationManager<Route, Action>? = nil,
+        handlePopRoot: (() -> Void)? = nil
     ) {
         self.navigation = navigation
         self.route = route
         self.buildNavigation = buildNavigation
         self.navigationManager = navigationManager
+        self.handlePopRoot = handlePopRoot
         actionListener = ActionListener(navigationManager: navigationManager, handleAction: handleAction)
 
         super.init()
@@ -86,6 +89,8 @@ class NavigationState<
                 } else {
                     topPresenter.child = nil
                 }
+            } else {
+                self?.handlePopRoot?()
             }
         }
     }

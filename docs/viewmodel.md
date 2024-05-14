@@ -39,7 +39,7 @@ struct YourView: View {
     init(viewModel: YourViewModel) {
         _viewModelLifecycle = StateObject(wrappedValue: ViewModelLifecycleHandler(viewModel: viewModel))
         _someData = ObservedObject(wrappedValue: StateObservable(viewModel.someData))
-        _someNullableData = ObservedObject(wrappedValue: NullableStateObservable(viewModel.someData))
+        _someNullableData = ObservedObject(wrappedValue: NullableStateObservable(viewModel.someNullableData))
    }
 
     var body: some View {

@@ -191,9 +191,9 @@ dependencies {
 
 ## Limitations
 
-!!! warning This library does not support restoring the state of the navigation stack when the
-application is killed and restarted on android. This is a known limitation and is not planned to be
-implemented in the future.
+!!! warning 
+    This library does not support restoring the state of the navigation stack when the application is killed and restarted on android. 
+    This is a known limitation and is not planned to be implemented in the future.
 
 `Podfile`
 

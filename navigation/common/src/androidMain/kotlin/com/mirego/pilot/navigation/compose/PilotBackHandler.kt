@@ -11,6 +11,6 @@ import com.mirego.pilot.navigation.PilotNavigationManager
 public fun PilotBackHandler(navController: NavHostController, navigationManager: PilotNavigationManager<*, *>, rootName: String) {
     val backStackEntry by navController.currentBackStackEntryFlow.collectAsState(initial = null)
     BackHandler(enabled = backStackEntry?.destination?.route != rootName) {
-        navigationManager.pop()
+        navigationManager.pop(locally = true)
     }
 }

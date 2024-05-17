@@ -32,21 +32,19 @@ public open class DefaultPilotNavigationManager<ROUTE : PilotNavigationRoute, AC
     }
 
     override fun pop(locally: Boolean) {
-        if (!locally && parentNavigationManager != null) {
-            parentNavigationManager.pop(locally = locally)
-            return
+        if ((!locally && parentNavigationManager != null) || !internalPop(callListener = true)) {
+            parentNavigationManager?.pop(locally = locally)
         }
-        internalPop(callListener = true)
     }
 
-    private fun internalPop(callListener: Boolean) {
-        coroutineScope.launch {
-            internalRouteList.removeLastOrNull()
-
-            if (callListener) {
+    private fun internalPop(callListener: Boolean): Boolean {
+        val last = internalRouteList.removeLastOrNull()
+        if (callListener) {
+            coroutineScope.launch {
                 listener?.pop()
             }
         }
+        return last != null
     }
 
     override fun popToId(uniqueId: String, inclusive: Boolean) {

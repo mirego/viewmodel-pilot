@@ -32,6 +32,14 @@ kotlin {
                 implementation(libs.kotlinx.coroutines.core)
             }
         }
+        val commonTest by getting {
+            dependencies {
+                implementation(libs.kotlin.test)
+                implementation(libs.kotlin.test.junit)
+                implementation(libs.kotlinx.coroutines.test)
+                implementation(libs.assertk)
+            }
+        }
         val androidMain by getting {
             dependencies {
                 implementation(libs.kotlin.stdlib.jdk8)

@@ -88,7 +88,7 @@ class DefaultPilotNavigationManagerTest {
     private sealed class TestNavigationRoute(routeName: TestNavigationRouteName) : EnumPilotNavigationRoute(routeName) {
         data object Route1 : TestNavigationRoute(TestNavigationRouteName.ROUTE1)
         data object Route2 : TestNavigationRoute(TestNavigationRouteName.ROUTE2)
-        data object Route3: TestNavigationRoute(TestNavigationRouteName.ROUTE3)
+        data object Route3 : TestNavigationRoute(TestNavigationRouteName.ROUTE3)
     }
 
     private class TestNavigationListener : PilotNavigationListener<TestNavigationRoute>() {

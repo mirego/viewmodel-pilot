@@ -13,6 +13,8 @@ public struct PilotTextFieldView<Label>: View where Label: View {
     @ObservedObject private var autoCorrect: StateObservable<KotlinBoolean>
     @ObservedObject private var autoCapitalization: StateObservable<PilotKeyboardAutoCapitalization>
 
+    @State private var textFieldText: String
+
     public init(_ pilotTextField: PilotTextField, placeholderBuilder: @escaping (String) -> Label) {
         self.pilotTextField = pilotTextField
         self.placeholderBuilder = placeholderBuilder
@@ -24,19 +26,12 @@ public struct PilotTextFieldView<Label>: View where Label: View {
         _contentType = ObservedObject(wrappedValue: StateObservable(pilotTextField.contentType))
         _autoCorrect = ObservedObject(wrappedValue: StateObservable(pilotTextField.autoCorrect))
         _autoCapitalization = ObservedObject(wrappedValue: StateObservable(pilotTextField.autoCapitalization))
-    }
 
-    private var textBinding: Binding<String> {
-        Binding {
-            pilotTextField.formatText(pilotTextField.transformText(text.value))
-        } set: { newValue in
-            let unformattedText = pilotTextField.unformatText(newValue)
-            pilotTextField.onValueChange(text: unformattedText)
-        }
+        _textFieldText = State(initialValue: pilotTextField.formatText(pilotTextField.transformText(pilotTextField.text.value)))
     }
 
     public var body: some View {
-        TextField(text: textBinding) {
+        TextField(text: $textFieldText) {
             placeholderBuilder(placeholder.value)
         }
         .onSubmit {
@@ -48,6 +43,14 @@ public struct PilotTextFieldView<Label>: View where Label: View {
         .disableAutocorrection(!autoCorrect.value.boolValue)
         .autocapitalization(autoCapitalization.value.uiTextAutocapitalizationType)
         .textFieldStyle(ExtendedTapAreaTextFieldStyle())
+        .onChange(of: text.value) { newValue in
+            textFieldText = pilotTextField.formatText(newValue)
+        }
+        .onChange(of: textFieldText) { newValue in
+            let unformattedText = pilotTextField.unformatText(newValue)
+            textFieldText = pilotTextField.formatText(pilotTextField.transformText(unformattedText))
+            pilotTextField.onValueChange(text: unformattedText)
+        }
     }
 }
 

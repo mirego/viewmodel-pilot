@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.ktlint) apply false
     alias(libs.plugins.mirego.publish) apply false
     alias(libs.plugins.kotlinx.binaryCompatibilityValidator) apply false
+    alias(libs.plugins.compose.compiler) apply false
     alias(libs.plugins.dokka)
 }
 

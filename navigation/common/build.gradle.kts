@@ -1,7 +1,10 @@
 @file:Suppress("DSL_SCOPE_VIOLATION")
 
+import org.jetbrains.kotlin.gradle.plugin.KotlinPlatformType
+
 plugins {
     id("buildlogic.kotlin.multiplatform")
+    alias(libs.plugins.compose.compiler)
 }
 
 group = "com.mirego.pilot"
@@ -13,15 +16,15 @@ ktlint {
     }
 }
 
+composeCompiler {
+    targetKotlinPlatforms.set(setOf(KotlinPlatformType.androidJvm))
+}
+
 android {
     namespace = "com.mirego.pilot.navigation"
 
     buildFeatures {
         compose = true
-    }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion = libs.versions.androidx.compose.compiler.get()
     }
 }
 
@@ -35,13 +38,13 @@ kotlin {
         val commonTest by getting {
             dependencies {
                 implementation(libs.kotlin.test)
-                implementation(libs.kotlin.test.junit)
                 implementation(libs.kotlinx.coroutines.test)
                 implementation(libs.assertk)
             }
         }
         val androidMain by getting {
             dependencies {
+                implementation(libs.kotlin.test.junit)
                 implementation(libs.kotlin.stdlib.jdk8)
                 implementation(libs.bundles.lifecycle)
                 implementation(libs.androidx.compose.ui)

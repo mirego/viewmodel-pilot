@@ -2,6 +2,7 @@
 
 plugins {
     id("buildlogic.android.library")
+    alias(libs.plugins.compose.compiler)
 }
 
 group = "com.mirego.pilot"
@@ -11,10 +12,6 @@ android {
 
     buildFeatures {
         compose = true
-    }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion = libs.versions.androidx.compose.compiler.get()
     }
 }
 

@@ -8,7 +8,7 @@ plugins {
 group = "com.mirego.pilot"
 
 android {
-    namespace = "com.mirego.pilot.components.material3"
+    namespace = "com.mirego.pilot.components.coil"
 
     buildFeatures {
         compose = true

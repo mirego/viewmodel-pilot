@@ -1,0 +1,47 @@
+PODS:
+  - Kingfisher (7.10.2)
+  - Pilot/Components (0.2.14-SNAPSHOT):
+    - Pilot/ViewModel
+    - Shared
+  - Pilot/Components.Kingfisher (0.2.14-SNAPSHOT):
+    - Kingfisher (~> 7.10.1)
+    - Pilot/Components
+    - Shared
+  - Pilot/Navigation (0.2.14-SNAPSHOT):
+    - Shared
+  - Pilot/ViewModel (0.2.14-SNAPSHOT):
+    - Shared
+  - Shared (1.0)
+  - SwiftUI-Utils (1.0.11)
+  - SwiftUIIntrospect (1.2.0)
+
+DEPENDENCIES:
+  - Pilot/Components.Kingfisher (from `../../`)
+  - Pilot/Navigation (from `../../`)
+  - Pilot/ViewModel (from `../../`)
+  - Shared (from `../common`)
+  - SwiftUI-Utils
+  - SwiftUIIntrospect
+
+SPEC REPOS:
+  trunk:
+    - Kingfisher
+    - SwiftUI-Utils
+    - SwiftUIIntrospect
+
+EXTERNAL SOURCES:
+  Pilot:
+    :path: "../../"
+  Shared:
+    :path: "../common"
+
+SPEC CHECKSUMS:
+  Kingfisher: 99edc495d3b7607e6425f0d6f6847b2abd6d716d
+  Pilot: dd89e536ddf5a2647f30834e75b259d2f7cb7f4e
+  Shared: 5848c7ddb78db2cf39eb833d46b2920298af2850
+  SwiftUI-Utils: 5f6b1c17845c8d80d7d8ac5e5e759943e83d5435
+  SwiftUIIntrospect: 35fbc9ae46c869ae7290afdecf6f70c2b8c86b13
+
+PODFILE CHECKSUM: cedb296c62db07c881df67970de696cc20bdfe34
+
+COCOAPODS: 1.15.2

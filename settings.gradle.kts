@@ -23,6 +23,7 @@ include(
     ":components",
     ":components-coil",
     ":components-material3",
+    ":sample",
 )
 
 project(":navigation").projectDir = File("navigation/common")
@@ -30,5 +31,6 @@ project(":viewmodel").projectDir = File("viewmodel/common")
 project(":components").projectDir = File("components/common")
 project(":components-coil").projectDir = File("components/android/coil")
 project(":components-material3").projectDir = File("components/android/material3")
+project(":sample").projectDir = File("sample/common")
 
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")

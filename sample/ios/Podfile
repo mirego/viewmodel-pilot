@@ -1,0 +1,32 @@
+platformVersion = '16.0'
+
+project 'PilotSample.xcodeproj'
+platform :ios, platformVersion
+use_frameworks!
+
+inhibit_all_warnings!
+
+target 'PilotSample' do
+  pod 'Shared', :path => '../common'
+
+  pod 'Pilot/Navigation', :path => '../../'
+  pod 'Pilot/ViewModel', :path => '../../'
+  pod 'Pilot/Components.Kingfisher', :path => '../../'
+
+  pod 'SwiftUI-Utils'
+  pod 'SwiftUIIntrospect'
+end
+
+post_install do |installer|
+    installer.pods_project.targets.each do |target|
+        if target.name == "Shared"
+            target.build_configurations.each do |config|
+              config.build_settings['OVERRIDE_KOTLIN_BUILD_IDE_SUPPORTED'] = '$ENABLE_PREVIEWS'
+            end
+        end
+
+        target.build_configurations.each do |config|
+            config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = platformVersion
+        end
+    end
+end

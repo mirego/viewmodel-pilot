@@ -56,7 +56,7 @@ class NavigationState<
             return false
         }
 
-        dedounceNavigation { [weak self] in
+        debounceNavigation { [weak self] in
             guard let self else { return }
             top().child = NavigationState(navigation: navigation, route: route)
         }
@@ -66,20 +66,26 @@ class NavigationState<
     override func popTo(route: PilotNavigationRoute, inclusive: Bool) {
         guard let route = route as? Route else { fatalError("Invalid route type") }
 
-        dedounceNavigation { [weak self] in
+        debounceNavigation { [weak self] in
             guard let self else { return }
             if let routeNavigationState = findLast(route: route) {
-                if inclusive {
-                    findParent(state: routeNavigationState)?.child = nil
+                let state = inclusive ? findParent(state: routeNavigationState) : routeNavigationState
+                guard let state  else { return }
+
+                if let popDelayInSeconds = state.child?.navigation.popDelayInSeconds {
+                    state.child?.navigationDismissTriggered = true
+                    DispatchQueue.main.asyncAfter(deadline: .now() + popDelayInSeconds) {
+                        state.child = nil
+                    }
                 } else {
-                    routeNavigationState.child = nil
+                    state.child = nil
                 }
             }
         }
     }
 
     override func pop() {
-        dedounceNavigation { [weak self] in
+        debounceNavigation { [weak self] in
             if let topPresenter = self?.topPresenter() {
                 if let popDelayInSeconds = topPresenter.child?.navigation.popDelayInSeconds {
                     topPresenter.child?.navigationDismissTriggered = true
@@ -95,7 +101,7 @@ class NavigationState<
         }
     }
 
-    private func dedounceNavigation(action: @escaping () -> Void) {
+    private func debounceNavigation(action: @escaping () -> Void) {
         let navigationAnimationDuration = 0.55
 
         if let lastNavigationDate {

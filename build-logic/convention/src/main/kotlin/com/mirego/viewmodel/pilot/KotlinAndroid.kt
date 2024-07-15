@@ -4,7 +4,9 @@ import com.android.build.api.dsl.CommonExtension
 import org.gradle.api.JavaVersion
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.withType
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask
+import org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile
 
 private object Constants {
     val JAVA_VERSION = JavaVersion.VERSION_17
@@ -30,12 +32,18 @@ internal fun Project.configureKotlinAndroid(
 }
 
 private fun Project.configureKotlin() {
-    tasks.withType<KotlinCompile>().configureEach {
-        kotlinOptions {
-            jvmTarget = Constants.JAVA_VERSION.toString()
-            freeCompilerArgs += listOf(
-                "-Xopt-in=kotlin.RequiresOptIn",
-                "-Xopt-in=com.mirego.pilot.components.InternalPilotComponentsApi"
+    tasks.withType<KotlinJvmCompile>().configureEach {
+        compilerOptions {
+            jvmTarget.set(JvmTarget.JVM_17)
+        }
+    }
+    tasks.withType<KotlinCompilationTask<*>> {
+        compilerOptions {
+            optIn.addAll(
+                listOf(
+                    "kotlin.RequiresOptIn",
+                    "com.mirego.pilot.components.InternalPilotComponentsApi",
+                ),
             )
         }
     }

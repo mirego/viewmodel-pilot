@@ -1,20 +1,23 @@
 @file:Suppress("DSL_SCOPE_VIOLATION")
 
+import org.jetbrains.kotlin.gradle.plugin.KotlinPlatformType
+
 plugins {
     id("buildlogic.kotlin.multiplatform")
+    alias(libs.plugins.compose.compiler)
 }
 
 group = "com.mirego.pilot"
+
+composeCompiler {
+    targetKotlinPlatforms.set(setOf(KotlinPlatformType.androidJvm))
+}
 
 android {
     namespace = "com.mirego.pilot.components"
 
     buildFeatures {
         compose = true
-    }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion = libs.versions.androidx.compose.compiler.get()
     }
 }
 

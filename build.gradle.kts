@@ -1,3 +1,4 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask
 
 plugins {
     alias(libs.plugins.kotlin.android) apply false
@@ -6,6 +7,7 @@ plugins {
     alias(libs.plugins.ktlint) apply false
     alias(libs.plugins.mirego.publish) apply false
     alias(libs.plugins.kotlinx.binaryCompatibilityValidator) apply false
+    alias(libs.plugins.compose.compiler) apply false
     alias(libs.plugins.dokka)
 }
 
@@ -14,6 +16,12 @@ allprojects {
         mavenLocal()
         google()
         mavenCentral()
+    }
+
+    tasks.withType<KotlinCompilationTask<*>> {
+        compilerOptions {
+            freeCompilerArgs.add("-Xexpect-actual-classes")
+        }
     }
 }
 

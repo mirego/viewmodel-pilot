@@ -1,6 +1,6 @@
 <div align="center">
   <p>Pilot is a library that allows you to share viewmodels, navigation and components on android and iOS</p>
-  <a href="http://kotlinlang.org"><img alt="kotlin 1.9.23" src="https://img.shields.io/badge/kotlin-1.9.23-blue.svg?logo=kotlin" /></a>
+  <a href="http://kotlinlang.org"><img alt="kotlin 2.0.0" src="https://img.shields.io/badge/kotlin-2.0.0-blue.svg?logo=kotlin" /></a>
   <a href="https://opensource.org/licenses/BSD-3-Clause"><img alt="BSD-3 Clause" src="https://img.shields.io/badge/License-BSD_3--Clause-blue.svg" /></a>
   <a href="https://github.com/mirego/viewmodel-pilot/tags"><img alt="Latest"  src="https://img.shields.io/github/tag/mirego/viewmodel-pilot.svg?label=latest"></a>
   <a href="https://github.com/mirego/viewmodel-pilot/actions/workflows/ci.yml"><img alt="CI" src="https://github.com/mirego/viewmodel-pilot/actions/workflows/ci.yml/badge.svg" /></a>

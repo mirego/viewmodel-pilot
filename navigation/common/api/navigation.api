@@ -68,6 +68,7 @@ public final class com/mirego/pilot/navigation/compose/PilotBackHandlerKt {
 public class com/mirego/pilot/navigation/compose/PilotNavControllerNavigationListener : com/mirego/pilot/navigation/PilotNavigationListener {
 	public static final field $stable I
 	public fun <init> (Landroidx/navigation/NavController;)V
+	public fun onRootPop ()V
 	public fun pop ()V
 	public fun popTo (Lcom/mirego/pilot/navigation/PilotNavigationRoute;Z)V
 	public fun push (Lcom/mirego/pilot/navigation/PilotNavigationRoute;)Z

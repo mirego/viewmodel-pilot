@@ -16,6 +16,8 @@ public open class PilotNavControllerNavigationListener<ROUTE : PilotNavigationRo
     override fun pop() {
         if (navController.previousBackStackEntry != null) {
             navController.popBackStack()
+        } else {
+            onRootPop()
         }
     }
 
@@ -24,5 +26,8 @@ public open class PilotNavControllerNavigationListener<ROUTE : PilotNavigationRo
             route = route.navRoute,
             inclusive = inclusive,
         )
+    }
+
+    public open fun onRootPop() {
     }
 }

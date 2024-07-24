@@ -4,7 +4,7 @@
 #### Common
 ```kotlin
 class YourViewModel : PilotViewModel() {
-    val someData: StateFlow<String>  = MutableStateFlow("")
+    val someData: StateFlow<String> = MutableStateFlow("")
     val someNullableData: StateFlow<String?> = MutableStateFlow(null)
     
     fun yourFunction() {

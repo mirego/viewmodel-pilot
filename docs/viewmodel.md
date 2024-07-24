@@ -3,7 +3,7 @@
 ## Usage
 #### Common
 ```kotlin
-class YourViewModel : ViewModel() {
+class YourViewModel : PilotViewModel() {
     val someData: StateFlow<String>  = MutableStateFlow("")
     val someNullableData: StateFlow<String?> = MutableStateFlow(null)
     

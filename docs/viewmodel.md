@@ -3,8 +3,8 @@
 ## Usage
 #### Common
 ```kotlin
-class YourViewModel : ViewModel() {
-    val someData: StateFlow<String>  = MutableStateFlow("")
+class YourViewModel : PilotViewModel() {
+    val someData: StateFlow<String> = MutableStateFlow("")
     val someNullableData: StateFlow<String?> = MutableStateFlow(null)
     
     fun yourFunction() {

@@ -49,18 +49,22 @@ class NavigationState<
         actionListener.startListening()
     }
 
-    override func push(route: PilotNavigationRoute) -> Bool {
+    override func canNavigate(route: PilotNavigationRoute) -> Bool {
+        guard let buildNavigation else { return false }
+        guard let route = route as? Route else { return false }
+        guard (buildNavigation(currentStack(), route) != nil) else { return false }
+        return true
+    }
+
+    override func push(route: PilotNavigationRoute) {
         guard let buildNavigation else { fatalError("buildNavigation not set")}
         guard let route = route as? Route else { fatalError("Invalid route type")}
-        guard let navigation = buildNavigation(currentStack(), route) else {
-            return false
-        }
+        guard let navigation = buildNavigation(currentStack(), route) else { fatalError("Unable to create navigation") }
 
         debounceNavigation { [weak self] in
             guard let self else { return }
             top().child = NavigationState(navigation: navigation, route: route)
         }
-        return true
     }
 
     override func popTo(route: PilotNavigationRoute, inclusive: Bool) {

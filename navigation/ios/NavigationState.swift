@@ -20,25 +20,28 @@ class NavigationState<
     @Published var child: NavigationStateTyped?
     @Published var navigationDismissTriggered = false
 
-    private let buildNavigation: (([Route], Route) -> PilotNavigationType<ScreenData, NavModifier>?)?
+    private let buildNavigation: (([Route], Route) -> PilotNavigationType<ScreenData, NavModifier>)?
     private let navigationManager: PilotNavigationManager<Route, Action>?
     private let actionListener: ActionListener<Route, Action>
     private let handlePopRoot: (() -> Void)?
+    private let canNavigateToRoute: ((_ route: Route) -> Bool)
     private var lastNavigationDate: Foundation.Date?
 
     init(
         navigation: PilotNavigationType<ScreenData, NavModifier>,
         route: Route?,
-        buildNavigation: (([Route], Route) -> PilotNavigationType<ScreenData, NavModifier>?)? = nil,
+        buildNavigation: (([Route], Route) -> PilotNavigationType<ScreenData, NavModifier>)? = nil,
         handleAction: ((Action) -> Void)? = nil,
         navigationManager: PilotNavigationManager<Route, Action>? = nil,
-        handlePopRoot: (() -> Void)? = nil
+        handlePopRoot: (() -> Void)? = nil,
+        canNavigateToRoute: ((_ route: Route) -> Bool)? = nil
     ) {
         self.navigation = navigation
         self.route = route
         self.buildNavigation = buildNavigation
         self.navigationManager = navigationManager
         self.handlePopRoot = handlePopRoot
+        self.canNavigateToRoute = canNavigateToRoute ?? { _ in return true }
         actionListener = ActionListener(navigationManager: navigationManager, handleAction: handleAction)
 
         super.init()
@@ -52,18 +55,16 @@ class NavigationState<
     override func canNavigate(route: PilotNavigationRoute) -> Bool {
         guard let buildNavigation else { return false }
         guard let route = route as? Route else { return false }
-        guard (buildNavigation(currentStack(), route) != nil) else { return false }
-        return true
+        return canNavigateToRoute(route)
     }
 
     override func push(route: PilotNavigationRoute) {
         guard let buildNavigation else { fatalError("buildNavigation not set")}
         guard let route = route as? Route else { fatalError("Invalid route type")}
-        guard let navigation = buildNavigation(currentStack(), route) else { fatalError("Unable to create navigation") }
 
         debounceNavigation { [weak self] in
             guard let self else { return }
-            top().child = NavigationState(navigation: navigation, route: route)
+            top().child = NavigationState(navigation: buildNavigation(currentStack(), route), route: route)
         }
     }
 

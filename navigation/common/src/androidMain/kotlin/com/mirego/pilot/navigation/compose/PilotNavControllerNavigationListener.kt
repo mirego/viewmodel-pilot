@@ -8,7 +8,8 @@ public open class PilotNavControllerNavigationListener<ROUTE : PilotNavigationRo
     private val navController: NavController,
 ) : PilotNavigationListener<ROUTE>() {
 
-    override fun canNavigate(route: ROUTE): Boolean = true
+    override fun canNavigate(route: ROUTE): Boolean =
+        true
 
     override fun push(route: ROUTE) {
         navController.navigate(route.navRoute)

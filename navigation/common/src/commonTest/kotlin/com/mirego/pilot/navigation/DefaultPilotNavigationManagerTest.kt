@@ -94,9 +94,12 @@ class DefaultPilotNavigationManagerTest {
     private class TestNavigationListener : PilotNavigationListener<TestNavigationRoute>() {
         val routes = mutableListOf<TestNavigationRoute>()
 
-        override fun push(route: TestNavigationRoute): Boolean {
-            routes.add(route)
+        override fun canNavigate(route: TestNavigationRoute): Boolean {
             return true
+        }
+
+        override fun push(route: TestNavigationRoute) {
+            routes.add(route)
         }
 
         override fun pop() {

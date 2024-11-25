@@ -8,6 +8,8 @@ public open class PilotNavControllerNavigationListener<ROUTE : PilotNavigationRo
     private val navController: NavController,
 ) : PilotNavigationListener<ROUTE>() {
 
+    // Override this method if you want to prevent navigation in specific situations.
+    // This will be verified before calling push
     override fun canNavigate(route: ROUTE): Boolean =
         true
 

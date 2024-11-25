@@ -53,7 +53,6 @@ class NavigationState<
     }
 
     override func canNavigate(route: PilotNavigationRoute) -> Bool {
-        guard let buildNavigation else { return false }
         guard let route = route as? Route else { return false }
         return canNavigateToRoute(route)
     }

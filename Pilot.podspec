@@ -13,12 +13,15 @@ Pod::Spec.new do |spec|
   spec.static_framework         = true
   spec.source_files             = "ios/**/*.swift"
   
-  spec.platform = :ios, "15.0"
+  spec.ios.deployment_target = "15.0"
+  spec.tvos.deployment_target = "15.0"
+  spec.osx.deployment_target = "12.0"
 
   spec.dependency "Shared"
 
   spec.subspec "Navigation" do |subspec|
     subspec.source_files  = "navigation/ios/**/*.swift"
+    subspec.osx.exclude_files  = "navigation/ios/FullScreenNotAnimatedPresenter.swift"
   end
   
   spec.subspec "ViewModel" do |subspec|
@@ -27,6 +30,11 @@ Pod::Spec.new do |spec|
 
   spec.subspec "Components" do |subspec|
     subspec.source_files  = "components/ios/base/**/*.swift"
+    subspec.osx.exclude_files = [
+      "components/ios/base/Types/PilotKeyboardType.swift",
+      "components/ios/base/Types/PilotKeyboardAutoCapitalization.swift",
+      "components/ios/base/Types/PilotTextContentType.swift"
+    ]
     subspec.dependency 'Pilot/ViewModel'
   end
 

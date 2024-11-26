@@ -47,7 +47,11 @@ struct NavigationContainerView<
         NavigationView {
             unwrappedBody
         }
+        #if os(macOS)
+        .navigationViewStyle(.automatic)
+        #else
         .navigationViewStyle(.stack)
+        #endif
     }
 
     @ViewBuilder
@@ -58,14 +62,17 @@ struct NavigationContainerView<
                 onDismiss: childOnDismiss,
                 content: { childView }
             )
+            #if !os(macOS)
             .fullScreenCover(
                 isPresented: fullScreenCoverBinding,
                 onDismiss: childOnDismiss,
                 content: { childView }
             )
+            #endif
             .backportNavigationLink(isPresented: pushBinding) {
                 childView
             }
+            #if canImport(UIKit)
             .background(
                 FullScreenNotAnimatedPresenter(
                     isPresented: fullScreenNotAnimatedBinding,
@@ -73,6 +80,7 @@ struct NavigationContainerView<
                     content: { childView }
                 )
             )
+            #endif
             .environment(\.pilotNavigationDismissTriggered, navigateState.navigationDismissTriggered)
             .environment(\.presentedPilotRouteName, navigateState.child?.route?.name ?? presentedRouteName)
     }

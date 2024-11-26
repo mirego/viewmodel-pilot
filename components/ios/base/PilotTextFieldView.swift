@@ -38,10 +38,12 @@ public struct PilotTextFieldView<Label>: View where Label: View {
             pilotTextField.onReturnKeyTap()
         }
         .submitLabel(keyboardReturnKeyType.value.submitLabel)
+        #if canImport(UIKit)
         .keyboardType(keyboardType.value.uiKeyboardType)
-        .textContentType(contentType.value.uiTextContentType)
-        .disableAutocorrection(!autoCorrect.value.boolValue)
         .autocapitalization(autoCapitalization.value.uiTextAutocapitalizationType)
+        .textContentType(contentType.value.uiTextContentType)
+        #endif
+        .disableAutocorrection(!autoCorrect.value.boolValue)
         .textFieldStyle(ExtendedTapAreaTextFieldStyle())
         .onChange(of: text.value) { newValue in
             textFieldText = pilotTextField.formatText(newValue)

@@ -5,7 +5,9 @@ public enum PilotNavigationType<Screen, NavModifier: ViewModifier> {
     case root
     case push(screen: Screen, onDismiss: () -> Void)
     case sheet(screen: Screen, data: NavigationTypeData<NavModifier>)
+    @available(iOS 15, tvOS 15, *)
     case fullScreenCover(screen: Screen, data: NavigationTypeData<NavModifier>)
+    @available(iOS 15, tvOS 15, *)
     case fullScreenNotAnimated(screen: Screen, data: NavigationTypeData<NavModifier>, popDelayInSeconds: Double?)
 
     var screen: Screen? {

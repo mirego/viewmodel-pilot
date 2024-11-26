@@ -21,7 +21,8 @@ public abstract class PilotNavigationManager<ROUTE : PilotNavigationRoute, ACTIO
 }
 
 public abstract class PilotNavigationListener<ROUTE : PilotNavigationRoute> {
-    public abstract fun push(route: ROUTE): Boolean
+    public abstract fun canNavigate(route: ROUTE): Boolean
+    public abstract fun push(route: ROUTE)
     public abstract fun pop()
     public abstract fun popTo(route: ROUTE, inclusive: Boolean)
 }

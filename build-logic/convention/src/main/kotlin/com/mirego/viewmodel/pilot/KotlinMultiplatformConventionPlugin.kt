@@ -37,6 +37,8 @@ class KotlinMultiplatformConventionPlugin : Plugin<Project> {
                 iosX64()
                 iosArm64()
                 iosSimulatorArm64()
+                macosArm64()
+                macosX64()
 
                 androidTarget {
                     publishLibraryVariants("release", "debug")

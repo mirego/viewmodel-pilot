@@ -64,6 +64,7 @@ public struct PilotRichTextView: View {
 
 private func createClearImage(width: CGFloat) -> Image {
     let size = CGSize(width: width, height: 1)
+    #if canImport(UIKit)
     return Image(
         uiImage: UIGraphicsImageRenderer(size: size).image { context in
             context.cgContext.setFillColor(UIColor.clear.cgColor)
@@ -71,4 +72,14 @@ private func createClearImage(width: CGFloat) -> Image {
             context.cgContext.drawPath(using: .fill)
         }
     )
+    #else
+    let image = NSImage(size: size, flipped: false) { rect in
+        guard let context = NSGraphicsContext.current?.cgContext else { return false }
+        context.setFillColor(.clear)
+        context.addRect(rect)
+        context.drawPath(using: .fill)
+        return true
+    }
+    return Image(nsImage: image)
+    #endif
 }

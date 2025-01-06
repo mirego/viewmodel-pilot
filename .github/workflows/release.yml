@@ -5,7 +5,7 @@ on: workflow_dispatch
 jobs:
   release:
     name: Release library
-    runs-on: macos-12
+    runs-on: macos-latest
     continue-on-error: false
     steps:
       - name: Checkout

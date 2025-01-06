@@ -1,6 +1,7 @@
 package com.mirego.pilot.navigation
 
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 public open class DefaultPilotNavigationManager<ROUTE : PilotNavigationRoute, ACTION : Any>(
@@ -9,6 +10,7 @@ public open class DefaultPilotNavigationManager<ROUTE : PilotNavigationRoute, AC
 ) : PilotNavigationManager<ROUTE, ACTION>() {
 
     private val internalRouteList: MutableList<ROUTE> = mutableListOf()
+    private val internalTemporaryPoppedRouteList: MutableList<ROUTE> = mutableListOf()
 
     override fun currentRoutes(): List<ROUTE> =
         internalRouteList
@@ -16,6 +18,7 @@ public open class DefaultPilotNavigationManager<ROUTE : PilotNavigationRoute, AC
     @Suppress("UNCHECKED_CAST")
     override fun <T : ROUTE> findRoute(uniqueId: String): T? =
         internalRouteList.firstOrNull { it.uniqueId == uniqueId } as? T
+            ?: internalTemporaryPoppedRouteList.firstOrNull { it.uniqueId == uniqueId } as? T
 
     override fun push(route: ROUTE, locally: Boolean) {
         coroutineScope.launch {
@@ -40,12 +43,31 @@ public open class DefaultPilotNavigationManager<ROUTE : PilotNavigationRoute, AC
 
     private fun internalPop(callListener: Boolean): Boolean {
         val last = internalRouteList.removeLastOrNull()
+        if (last != null) {
+            addToPoppingList(last)
+        }
         if (callListener) {
             coroutineScope.launch {
                 listener?.pop()
             }
         }
         return last != null
+    }
+
+    private fun addToPoppingList(route: ROUTE) {
+        addToPoppingList(listOf(route))
+    }
+
+    private fun addToPoppingList(routes: List<ROUTE>) {
+        // We keep the routes for a little while in the popping list to allow animations to complete
+        // Otherwise, on android when pushing and pressing back quickly, the route would be removed
+        // from the list before the composable would have time to animate out and findRoute could not
+        // find the route anymore
+        internalTemporaryPoppedRouteList.addAll(routes)
+        coroutineScope.launch {
+            delay(5000)
+            internalTemporaryPoppedRouteList.removeAll(routes)
+        }
     }
 
     override fun popToId(uniqueId: String, inclusive: Boolean) {
@@ -80,10 +102,12 @@ public open class DefaultPilotNavigationManager<ROUTE : PilotNavigationRoute, AC
                 if (callListener) {
                     listener?.let {
                         internalRouteList.removeAll(elementsToRemove)
+                        addToPoppingList(elementsToRemove)
                         listener?.popTo(navigationItem, inclusive = inclusive)
                     }
                 } else {
                     internalRouteList.removeAll(elementsToRemove)
+                    addToPoppingList(elementsToRemove)
                 }
             }
         }

@@ -44,7 +44,6 @@ kotlin {
         }
         val androidMain by getting {
             dependencies {
-                implementation(libs.kotlin.test.junit)
                 implementation(libs.kotlin.stdlib.jdk8)
                 implementation(libs.bundles.lifecycle)
                 implementation(libs.androidx.compose.ui)

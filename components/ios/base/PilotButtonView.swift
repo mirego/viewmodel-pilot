@@ -9,6 +9,7 @@ public struct PilotButtonView<Content, Label>: View where Content: AnyObject, La
 
     @ObservedObject private var content: StateObservable<Content>
     @ObservedObject private var isEnabled: StateObservable<KotlinBoolean>
+    @ObservedObject private var accessibilityInfo: NullableStateObservable<PilotAccessibilityInfo>
 
     public init(_ button: PilotButton<Content>, labelBuilder: @escaping (Content) -> Label, animation: ((Content, Content) -> Animation?)? = nil) {
         self.button = button
@@ -16,6 +17,7 @@ public struct PilotButtonView<Content, Label>: View where Content: AnyObject, La
 
         _content = ObservedObject(wrappedValue: StateObservable(button.content, animation: animation))
         _isEnabled = ObservedObject(wrappedValue: StateObservable(button.isEnabled))
+        _accessibilityInfo = ObservedObject(wrappedValue: NullableStateObservable(button.accessibilityInfo))
     }
 
     public var body: some View {
@@ -31,6 +33,7 @@ public struct PilotButtonView<Content, Label>: View where Content: AnyObject, La
             labelBuilder(content.value)
         }
         .disabled(!isEnabled.value.boolValue)
+        .pilotAccessibility(accessibilityInfo.value, traits: .isButton)
     }
 }
 

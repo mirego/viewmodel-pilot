@@ -16,8 +16,8 @@ public data class PilotAlertDialog(
 
     public data class ConfirmButton(
         override val title: String,
+        val isDestructive: Boolean = false,
         override val action: () -> Unit,
-        val isDestructive: Boolean = false
     ): Button
 
     public data class DismissButton(

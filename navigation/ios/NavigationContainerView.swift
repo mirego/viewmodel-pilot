@@ -229,7 +229,7 @@ struct NavigationContainerView<
         guard let child = navigateState.child else { return nil }
         switch child.navigation {
         case .alert(let data):
-            return data
+            return data.dialog
         default:
             return nil
         }

@@ -28,11 +28,13 @@ public fun PilotRemoteImage(
     colorFilter: ColorFilter? = null,
     filterQuality: FilterQuality = DrawScope.DefaultFilterQuality,
     allowHardware: Boolean = true,
+    asyncImageBuilder: ImageRequest.Builder.() -> Unit = {},
 ) {
     AsyncImage(
         model = ImageRequest.Builder(LocalContext.current)
             .data(pilotRemoteImage.url)
             .allowHardware(allowHardware)
+            .apply(asyncImageBuilder)
             .build(),
         contentDescription = pilotRemoteImage.contentDescription,
         modifier = modifier,
@@ -52,8 +54,8 @@ public fun PilotRemoteImage(
 internal fun transformOf(placeholder: Painter): (AsyncImagePainter.State) -> AsyncImagePainter.State =
     { state ->
         when (state) {
-            is AsyncImagePainter.State.Loading -> state.copy(painter = placeholder)
-            is AsyncImagePainter.State.Error -> state.copy(painter = placeholder)
+            is AsyncImagePainter.State.Loading -> if (state.painter == null) state.copy(painter = placeholder) else state
+            is AsyncImagePainter.State.Error -> if (state.painter == null) state.copy(painter = placeholder) else state
             else -> state
         }
     }

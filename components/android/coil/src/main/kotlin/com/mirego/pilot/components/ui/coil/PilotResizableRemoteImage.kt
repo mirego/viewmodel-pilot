@@ -30,6 +30,7 @@ public fun PilotResizableRemoteImage(
     colorFilter: ColorFilter? = null,
     filterQuality: FilterQuality = DrawScope.DefaultFilterQuality,
     allowHardware: Boolean = true,
+    asyncImageBuilder: ImageRequest.Builder.() -> Unit = {},
 ) {
     BoxWithConstraints(modifier) {
         with(LocalDensity.current) {
@@ -43,9 +44,10 @@ public fun PilotResizableRemoteImage(
                 model = ImageRequest.Builder(LocalContext.current)
                     .data(url)
                     .allowHardware(allowHardware)
+                    .apply(asyncImageBuilder)
                     .build(),
                 contentDescription = pilotRemoteImage.contentDescription,
-                modifier = modifier,
+                modifier = Modifier.matchParentSize(),
                 transform = pilotRemoteImage.placeholder
                     ?.let { transformOf(pilotImageResourcePainter(it)) }
                     ?: AsyncImagePainter.DefaultTransform,

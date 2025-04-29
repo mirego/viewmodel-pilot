@@ -1,5 +1,6 @@
 import Foundation
 import SwiftUI
+import Shared
 
 public enum PilotNavigationType<Screen, NavModifier: ViewModifier> {
     case root
@@ -9,6 +10,8 @@ public enum PilotNavigationType<Screen, NavModifier: ViewModifier> {
     case fullScreenCover(screen: Screen, data: NavigationTypeData<NavModifier>)
     @available(iOS 15, tvOS 15, *)
     case fullScreenNotAnimated(screen: Screen, data: NavigationTypeData<NavModifier>, popDelayInSeconds: Double?)
+    @available(iOS 15, tvOS 15, *)
+    case alert(data: AlertTypeData)
 
     var screen: Screen? {
         switch self {
@@ -22,6 +25,8 @@ public enum PilotNavigationType<Screen, NavModifier: ViewModifier> {
             return screen
         case .fullScreenNotAnimated(let screen, _, _):
             return screen
+        case .alert:
+            return nil
         }
     }
 
@@ -44,5 +49,15 @@ public struct NavigationTypeData<NavModifier: ViewModifier> {
         self.embedInNavigationView = embedInNavigationView
         self.onDismiss = onDismiss
         self.navigationViewModifier = navigationViewModifier
+    }
+}
+
+public struct AlertTypeData {
+    let dialog: PilotAlertDialog
+    let onDismiss: () -> Void
+    
+    public init(dialog: PilotAlertDialog, onDismiss: @escaping () -> Void) {
+        self.dialog = dialog
+        self.onDismiss = onDismiss
     }
 }

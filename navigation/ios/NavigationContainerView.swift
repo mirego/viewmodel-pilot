@@ -62,6 +62,10 @@ struct NavigationContainerView<
                 onDismiss: childOnDismiss,
                 content: { childView }
             )
+            .alert(
+                with: alertData,
+                isPresented: alertBinding
+            )
             #if !os(macOS)
             .fullScreenCover(
                 isPresented: fullScreenCoverBinding,
@@ -97,6 +101,8 @@ struct NavigationContainerView<
             return data.embedInNavigationView
         case .fullScreenNotAnimated(_, let data, _):
             return data.embedInNavigationView
+        case .alert:
+            return false
         }
     }
 
@@ -130,7 +136,7 @@ struct NavigationContainerView<
             },
             set: { isShowing in
                 if !isShowing {
-                    if isChildPush {
+                    if isChildDismissHandlerManuallyTriggered {
                         childOnDismiss?()
                     }
                     navigateState.child = nil
@@ -178,6 +184,16 @@ struct NavigationContainerView<
             return .constant(false)
         }
     }
+    
+    private var alertBinding: Binding<Bool> {
+        guard let child = navigateState.child else { return .constant(false) }
+        switch child.navigation {
+        case .alert:
+            return isActiveBinding
+        default:
+            return .constant(false)
+        }
+    }
 
     private var childOnDismiss: (() -> Void)? {
         guard let child = navigateState.child else { return nil }
@@ -192,16 +208,30 @@ struct NavigationContainerView<
             return data.onDismiss
         case .fullScreenNotAnimated(_, let data, _):
             return data.onDismiss
+        case .alert(let data):
+            return data.onDismiss
         }
     }
 
-    private var isChildPush: Bool {
+    private var isChildDismissHandlerManuallyTriggered: Bool {
         guard let child = navigateState.child else { return false }
         switch child.navigation {
         case .push:
             return true
+        case .alert:
+            return true
         default:
             return false
+        }
+    }
+    
+    private var alertData: PilotAlertDialog? {
+        guard let child = navigateState.child else { return nil }
+        switch child.navigation {
+        case .alert(let data):
+            return data
+        default:
+            return nil
         }
     }
 }

@@ -12,7 +12,7 @@ struct PilotAlertViewModifier: ViewModifier {
     let isPresented: Binding<Bool>
     
     func body(content: Content) -> some View {
-        if let alertData {
+        if #available(iOS 15, tvOS 15.0, *), let alertData {
             content
                 .alert(
                     alertData.title,

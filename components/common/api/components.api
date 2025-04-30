@@ -287,6 +287,63 @@ public class com/mirego/pilot/components/lifecycle/PilotAppearanceLifecycleViewM
 	public fun setViewAppearanceScope (Lkotlinx/coroutines/CoroutineScope;)V
 }
 
+public final class com/mirego/pilot/components/navigation/PilotAlertDialog {
+	public static final field $stable I
+	public fun <init> (Lcom/mirego/pilot/components/content/PilotLocalImageContent;Ljava/lang/String;Ljava/lang/String;Lcom/mirego/pilot/components/navigation/PilotAlertDialog$ConfirmButton;Lcom/mirego/pilot/components/navigation/PilotAlertDialog$DismissButton;)V
+	public synthetic fun <init> (Lcom/mirego/pilot/components/content/PilotLocalImageContent;Ljava/lang/String;Ljava/lang/String;Lcom/mirego/pilot/components/navigation/PilotAlertDialog$ConfirmButton;Lcom/mirego/pilot/components/navigation/PilotAlertDialog$DismissButton;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lcom/mirego/pilot/components/content/PilotLocalImageContent;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Lcom/mirego/pilot/components/navigation/PilotAlertDialog$ConfirmButton;
+	public final fun component5 ()Lcom/mirego/pilot/components/navigation/PilotAlertDialog$DismissButton;
+	public final fun copy (Lcom/mirego/pilot/components/content/PilotLocalImageContent;Ljava/lang/String;Ljava/lang/String;Lcom/mirego/pilot/components/navigation/PilotAlertDialog$ConfirmButton;Lcom/mirego/pilot/components/navigation/PilotAlertDialog$DismissButton;)Lcom/mirego/pilot/components/navigation/PilotAlertDialog;
+	public static synthetic fun copy$default (Lcom/mirego/pilot/components/navigation/PilotAlertDialog;Lcom/mirego/pilot/components/content/PilotLocalImageContent;Ljava/lang/String;Ljava/lang/String;Lcom/mirego/pilot/components/navigation/PilotAlertDialog$ConfirmButton;Lcom/mirego/pilot/components/navigation/PilotAlertDialog$DismissButton;ILjava/lang/Object;)Lcom/mirego/pilot/components/navigation/PilotAlertDialog;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getConfirmButton ()Lcom/mirego/pilot/components/navigation/PilotAlertDialog$ConfirmButton;
+	public final fun getDismissButton ()Lcom/mirego/pilot/components/navigation/PilotAlertDialog$DismissButton;
+	public final fun getIcon ()Lcom/mirego/pilot/components/content/PilotLocalImageContent;
+	public final fun getText ()Ljava/lang/String;
+	public final fun getTitle ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/mirego/pilot/components/navigation/PilotAlertDialog$Button {
+	public abstract fun getAction ()Lkotlin/jvm/functions/Function0;
+	public abstract fun getTitle ()Ljava/lang/String;
+}
+
+public final class com/mirego/pilot/components/navigation/PilotAlertDialog$ConfirmButton : com/mirego/pilot/components/navigation/PilotAlertDialog$Button {
+	public static final field $stable I
+	public fun <init> (Ljava/lang/String;ZLkotlin/jvm/functions/Function0;)V
+	public synthetic fun <init> (Ljava/lang/String;ZLkotlin/jvm/functions/Function0;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Z
+	public final fun component3 ()Lkotlin/jvm/functions/Function0;
+	public final fun copy (Ljava/lang/String;ZLkotlin/jvm/functions/Function0;)Lcom/mirego/pilot/components/navigation/PilotAlertDialog$ConfirmButton;
+	public static synthetic fun copy$default (Lcom/mirego/pilot/components/navigation/PilotAlertDialog$ConfirmButton;Ljava/lang/String;ZLkotlin/jvm/functions/Function0;ILjava/lang/Object;)Lcom/mirego/pilot/components/navigation/PilotAlertDialog$ConfirmButton;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getAction ()Lkotlin/jvm/functions/Function0;
+	public fun getTitle ()Ljava/lang/String;
+	public fun hashCode ()I
+	public final fun isDestructive ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mirego/pilot/components/navigation/PilotAlertDialog$DismissButton : com/mirego/pilot/components/navigation/PilotAlertDialog$Button {
+	public static final field $stable I
+	public fun <init> (Ljava/lang/String;Lkotlin/jvm/functions/Function0;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Lkotlin/jvm/functions/Function0;
+	public final fun copy (Ljava/lang/String;Lkotlin/jvm/functions/Function0;)Lcom/mirego/pilot/components/navigation/PilotAlertDialog$DismissButton;
+	public static synthetic fun copy$default (Lcom/mirego/pilot/components/navigation/PilotAlertDialog$DismissButton;Ljava/lang/String;Lkotlin/jvm/functions/Function0;ILjava/lang/Object;)Lcom/mirego/pilot/components/navigation/PilotAlertDialog$DismissButton;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getAction ()Lkotlin/jvm/functions/Function0;
+	public fun getTitle ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
 public final class com/mirego/pilot/components/type/PilotKeyboardAutoCapitalization : java/lang/Enum {
 	public static final field Characters Lcom/mirego/pilot/components/type/PilotKeyboardAutoCapitalization;
 	public static final field None Lcom/mirego/pilot/components/type/PilotKeyboardAutoCapitalization;

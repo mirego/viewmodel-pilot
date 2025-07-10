@@ -28,7 +28,7 @@ public fun <LABEL : Any, ITEM : Any> PilotPicker(
     offset: DpOffset = DpOffset(0.dp, 0.dp),
     properties: PopupProperties = PopupProperties(focusable = true),
     colors: MenuItemColors = MenuDefaults.itemColors(),
-    label: @Composable (label: LABEL) -> Unit,
+    labelView: @Composable (label: LABEL) -> Unit,
     item: @Composable (item: ITEM) -> Unit,
 ) {
     Box {
@@ -40,7 +40,7 @@ public fun <LABEL : Any, ITEM : Any> PilotPicker(
                 ),
         ) {
             val labelValue by pilotPicker.label.collectAsState()
-            label(labelValue)
+            labelView(labelValue)
         }
         // button unselected
         DropdownMenu(

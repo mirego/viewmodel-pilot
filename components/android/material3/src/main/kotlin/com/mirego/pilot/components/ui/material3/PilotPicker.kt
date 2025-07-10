@@ -5,12 +5,16 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.MenuDefaults
+import androidx.compose.material3.MenuDefaults.itemColors
 import androidx.compose.material3.MenuItemColors
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.unit.DpOffset
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.window.PopupProperties
 import com.mirego.pilot.components.PilotPicker
 
 @Composable
@@ -21,8 +25,10 @@ public fun <LABEL : Any, ITEM : Any> PilotPicker(
     modifier: Modifier = Modifier,
     dropDownModifier: Modifier = Modifier,
     dismissOnItemClick: Boolean = false,
+    offset: DpOffset = DpOffset(0.dp, 0.dp),
+    properties: PopupProperties = PopupProperties(focusable = true),
     colors: MenuItemColors = MenuDefaults.itemColors(),
-    itemColors: @Composable (label: LABEL) -> Unit,
+    label: @Composable (label: LABEL) -> Unit,
     item: @Composable (item: ITEM) -> Unit,
 ) {
     Box {
@@ -34,11 +40,13 @@ public fun <LABEL : Any, ITEM : Any> PilotPicker(
                 ),
         ) {
             val labelValue by pilotPicker.label.collectAsState()
-            itemColors(labelValue)
+            label(labelValue)
         }
         // button unselected
         DropdownMenu(
             expanded = expanded,
+            offset = offset,
+            properties = properties,
             onDismissRequest = { onExpandedChange(false) },
             modifier = dropDownModifier,
         ) {

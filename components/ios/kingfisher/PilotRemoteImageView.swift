@@ -7,7 +7,7 @@ public struct PilotRemoteImageView: View {
 
     private enum Content {
         case normal(PilotRemoteImage)
-        case resizable(PilotResizableRemoteImage, CGSize)
+        case resizable(PilotResizableRemoteImage, CGSize?)
     }
 
     private var imageConfigurations = [ImageConfiguration]()
@@ -24,7 +24,7 @@ public struct PilotRemoteImageView: View {
         self.content = .normal(content)
     }
 
-    public init(_ content: PilotResizableRemoteImage, size: CGSize) {
+    public init(_ content: PilotResizableRemoteImage, size: CGSize?) {
         self.content = .resizable(content, size)
     }
 
@@ -59,12 +59,16 @@ public struct PilotRemoteImageView: View {
         case .normal(let pilotRemoteImage):
             stringToURL(pilotRemoteImage.url)
         case let .resizable(pilotResizableRemoteImage, size):
-            stringToURL(
-                pilotResizableRemoteImage.url(
-                    width: KotlinInt(int: Int32(size.width * displayScale)),
-                    height: KotlinInt(int: Int32(size.height * displayScale))
+            if let size {
+                stringToURL(
+                    pilotResizableRemoteImage.url(
+                        width: KotlinInt(int: Int32(size.width * displayScale)),
+                        height: KotlinInt(int: Int32(size.height * displayScale))
+                    )
                 )
-            )
+            } else {
+                nil
+            }
         }
     }
 

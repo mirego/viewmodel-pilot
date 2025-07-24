@@ -21,6 +21,7 @@ dependencies {
     implementation(libs.androidx.compose.foundation)
     implementation(libs.androidx.compose.ui)
     implementation(libs.coil3.compose)
+    implementation(libs.coil3.network.okhttp)
 }
 
 afterEvaluate {

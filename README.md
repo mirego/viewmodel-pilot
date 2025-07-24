@@ -24,7 +24,7 @@ Each [release](https://github.com/mirego/viewmodel-pilot/releases) outlines what
   <td><img alt="kotlin 2.0.0" src="https://img.shields.io/badge/kotlin-2.0.0-blue.svg?logo=kotlin" /></td><td><img alt="0.3.0" src="https://img.shields.io/maven-metadata/v?label=mirego-maven&versionPrefix=0.3.0&metadataUrl=https%3A%2F%2Fmirego-maven.s3.amazonaws.com%2Fpublic%2Fcom%2Fmirego%2Fpilot%2Fviewmodel%2Fmaven-metadata.xml"></td>
  </tr>
  <tr>
-  <td><img alt="kotlin 2.2.0" src="https://img.shields.io/badge/kotlin-2.2.0-blue.svg?logo=kotlin" /></td><td><img alt="0.3.8" src="https://img.shields.io/maven-metadata/v?label=mirego-maven&versionPrefix=0.3.8&metadataUrl=https%3A%2F%2Fmirego-maven.s3.amazonaws.com%2Fpublic%2Fcom%2Fmirego%2Fpilot%2Fviewmodel%2Fmaven-metadata.xml"></td>
+  <td><img alt="kotlin 2.2.0" src="https://img.shields.io/badge/kotlin-2.2.0-blue.svg?logo=kotlin" /></td><td><img alt="0.4.0" src="https://img.shields.io/maven-metadata/v?label=mirego-maven&versionPrefix=0.4.0&metadataUrl=https%3A%2F%2Fmirego-maven.s3.amazonaws.com%2Fpublic%2Fcom%2Fmirego%2Fpilot%2Fviewmodel%2Fmaven-metadata.xml"></td>
  </tr>
 </table>
 

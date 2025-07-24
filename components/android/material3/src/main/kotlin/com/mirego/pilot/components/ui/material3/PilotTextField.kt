@@ -70,7 +70,7 @@ public fun PilotTextField(
         keyboardActions = pilotTextField.mergeWith(keyboardActions),
         keyboardOptions = KeyboardOptions(
             capitalization = autoCapitalization.composeValue,
-            autoCorrect = autoCorrect,
+            autoCorrectEnabled = autoCorrect,
             keyboardType = keyboardType.composeValue,
             imeAction = keyboardReturnKeyType.composeValue,
         ),

@@ -1,0 +1,8 @@
+public final class com/mirego/pilot/components/ui/coil3/PilotRemoteImageKt {
+	public static final fun PilotRemoteImage-nWU5RSE (Lcom/mirego/pilot/components/PilotRemoteImage;Landroidx/compose/ui/Modifier;Lkotlin/jvm/functions/Function1;Landroidx/compose/ui/Alignment;Landroidx/compose/ui/layout/ContentScale;FLandroidx/compose/ui/graphics/ColorFilter;IZLkotlin/jvm/functions/Function1;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class com/mirego/pilot/components/ui/coil3/PilotResizableRemoteImageKt {
+	public static final fun PilotResizableRemoteImage-nWU5RSE (Lcom/mirego/pilot/components/PilotResizableRemoteImage;Landroidx/compose/ui/Modifier;Lkotlin/jvm/functions/Function1;Landroidx/compose/ui/Alignment;Landroidx/compose/ui/layout/ContentScale;FLandroidx/compose/ui/graphics/ColorFilter;IZLkotlin/jvm/functions/Function1;Landroidx/compose/runtime/Composer;II)V
+}
+

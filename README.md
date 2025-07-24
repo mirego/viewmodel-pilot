@@ -1,6 +1,6 @@
 <div align="center">
   <p>Pilot is a library that allows you to share viewmodels, navigation and components on android and iOS</p>
-  <a href="http://kotlinlang.org"><img alt="kotlin 2.0.0" src="https://img.shields.io/badge/kotlin-2.0.0-blue.svg?logo=kotlin" /></a>
+  <a href="http://kotlinlang.org"><img alt="kotlin 2.2.0" src="https://img.shields.io/badge/kotlin-2.2.0-blue.svg?logo=kotlin" /></a>
   <a href="https://opensource.org/licenses/BSD-3-Clause"><img alt="BSD-3 Clause" src="https://img.shields.io/badge/License-BSD_3--Clause-blue.svg" /></a>
   <a href="https://github.com/mirego/viewmodel-pilot/tags"><img alt="Latest"  src="https://img.shields.io/github/tag/mirego/viewmodel-pilot.svg?label=latest"></a>
   <a href="https://github.com/mirego/viewmodel-pilot/actions/workflows/ci.yml"><img alt="CI" src="https://github.com/mirego/viewmodel-pilot/actions/workflows/ci.yml/badge.svg" /></a>
@@ -22,6 +22,9 @@ Each [release](https://github.com/mirego/viewmodel-pilot/releases) outlines what
  </tr>
  <tr>
   <td><img alt="kotlin 2.0.0" src="https://img.shields.io/badge/kotlin-2.0.0-blue.svg?logo=kotlin" /></td><td><img alt="0.3.0" src="https://img.shields.io/maven-metadata/v?label=mirego-maven&versionPrefix=0.3.0&metadataUrl=https%3A%2F%2Fmirego-maven.s3.amazonaws.com%2Fpublic%2Fcom%2Fmirego%2Fpilot%2Fviewmodel%2Fmaven-metadata.xml"></td>
+ </tr>
+ <tr>
+  <td><img alt="kotlin 2.2.0" src="https://img.shields.io/badge/kotlin-2.2.0-blue.svg?logo=kotlin" /></td><td><img alt="0.4.0" src="https://img.shields.io/maven-metadata/v?label=mirego-maven&versionPrefix=0.4.0&metadataUrl=https%3A%2F%2Fmirego-maven.s3.amazonaws.com%2Fpublic%2Fcom%2Fmirego%2Fpilot%2Fviewmodel%2Fmaven-metadata.xml"></td>
  </tr>
 </table>
 

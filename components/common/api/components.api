@@ -433,14 +433,11 @@ public final class com/mirego/pilot/components/ui/PilotButtonKt {
 
 public abstract interface class com/mirego/pilot/components/ui/PilotImageResourceProvider {
 	public abstract fun painterForResource (Lcom/mirego/pilot/components/PilotImageResource;Landroidx/compose/runtime/Composer;I)Landroidx/compose/ui/graphics/painter/Painter;
-	public abstract fun requirePainterForResource (Lcom/mirego/pilot/components/PilotImageResource;Landroidx/compose/runtime/Composer;I)Landroidx/compose/ui/graphics/painter/Painter;
+	public fun requirePainterForResource (Lcom/mirego/pilot/components/PilotImageResource;Landroidx/compose/runtime/Composer;I)Landroidx/compose/ui/graphics/painter/Painter;
 }
 
 public final class com/mirego/pilot/components/ui/PilotImageResourceProvider$DefaultImpls {
 	public static fun requirePainterForResource (Lcom/mirego/pilot/components/ui/PilotImageResourceProvider;Lcom/mirego/pilot/components/PilotImageResource;Landroidx/compose/runtime/Composer;I)Landroidx/compose/ui/graphics/painter/Painter;
-}
-
-public final class com/mirego/pilot/components/ui/PilotKeyboardActionsKt {
 }
 
 public final class com/mirego/pilot/components/ui/PilotLifecycleViewKt {
@@ -454,23 +451,11 @@ public final class com/mirego/pilot/components/ui/PilotResourceProviderKt {
 	public static final fun pilotImageResourcePainter (Lcom/mirego/pilot/components/PilotImageResource;Landroidx/compose/runtime/Composer;I)Landroidx/compose/ui/graphics/painter/Painter;
 }
 
-public final class com/mirego/pilot/components/ui/PilotRichTextKt {
-}
-
 public abstract interface class com/mirego/pilot/components/ui/PilotTextStyleResourceProvider {
 	public abstract fun textStyleForResource (Lcom/mirego/pilot/components/PilotTextStyleResource;Landroidx/compose/runtime/Composer;I)Landroidx/compose/ui/text/TextStyle;
 }
 
 public final class com/mirego/pilot/components/ui/extensions/SemanticsExtensionsKt {
 	public static final fun clearAndSetAccessibility (Landroidx/compose/ui/Modifier;Lcom/mirego/pilot/components/accessibility/PilotAccessibilityInfo;)Landroidx/compose/ui/Modifier;
-}
-
-public final class com/mirego/pilot/components/ui/type/PilotKeyboardAutoCapitalizationKt {
-}
-
-public final class com/mirego/pilot/components/ui/type/PilotKeyboardReturnKeyTypeKt {
-}
-
-public final class com/mirego/pilot/components/ui/type/PilotKeyboardTypeKt {
 }
 

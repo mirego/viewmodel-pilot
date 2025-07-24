@@ -1,16 +1,11 @@
 public final class com/mirego/pilot/components/ui/material3/ComposableSingletons$PilotAlertDialogKt {
 	public static final field INSTANCE Lcom/mirego/pilot/components/ui/material3/ComposableSingletons$PilotAlertDialogKt;
-	public static field lambda-1 Lkotlin/jvm/functions/Function3;
-	public static field lambda-2 Lkotlin/jvm/functions/Function3;
-	public static field lambda-3 Lkotlin/jvm/functions/Function3;
-	public static field lambda-4 Lkotlin/jvm/functions/Function4;
-	public static field lambda-5 Lkotlin/jvm/functions/Function4;
 	public fun <init> ()V
-	public final fun getLambda-1$components_material3_release ()Lkotlin/jvm/functions/Function3;
-	public final fun getLambda-2$components_material3_release ()Lkotlin/jvm/functions/Function3;
-	public final fun getLambda-3$components_material3_release ()Lkotlin/jvm/functions/Function3;
-	public final fun getLambda-4$components_material3_release ()Lkotlin/jvm/functions/Function4;
-	public final fun getLambda-5$components_material3_release ()Lkotlin/jvm/functions/Function4;
+	public final fun getLambda$1136491040$components_material3_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda$1308158669$components_material3_release ()Lkotlin/jvm/functions/Function4;
+	public final fun getLambda$142364561$components_material3_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda$2086656925$components_material3_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda$405589655$components_material3_release ()Lkotlin/jvm/functions/Function4;
 }
 
 public final class com/mirego/pilot/components/ui/material3/PilotAlertDialogKt {

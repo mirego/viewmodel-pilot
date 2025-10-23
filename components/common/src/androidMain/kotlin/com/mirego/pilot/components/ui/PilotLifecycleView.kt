@@ -14,7 +14,7 @@ import com.mirego.pilot.components.lifecycle.onAppear
 public fun PilotLifecycleView(appearanceLifecycle: PilotAppearanceLifecycle, content: @Composable () -> Unit) {
     val lifecycleOwner by rememberUpdatedState(LocalLifecycleOwner.current)
     content()
-    DisposableEffect(lifecycleOwner) {
+    DisposableEffect(appearanceLifecycle, lifecycleOwner) {
         val observer = LifecycleEventObserver { _, event ->
             if (event == Lifecycle.Event.ON_START) {
                 appearanceLifecycle.onAppear()

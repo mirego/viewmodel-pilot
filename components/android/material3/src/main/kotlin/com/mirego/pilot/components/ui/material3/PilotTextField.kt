@@ -40,6 +40,8 @@ public fun PilotTextField(
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     shape: Shape = TextFieldDefaults.shape,
     colors: TextFieldColors = TextFieldDefaults.colors(),
+    enabled: Boolean = true,
+    readOnly: Boolean = false,
 ) {
     val textValue by pilotTextField.text.collectAsState()
     val placeHolder by pilotTextField.placeholder.collectAsState()
@@ -79,5 +81,8 @@ public fun PilotTextField(
         interactionSource = interactionSource,
         shape = shape,
         colors = colors,
+        enabled = enabled,
+        readOnly = readOnly,
+        singleLine = singleLine,
     )
 }

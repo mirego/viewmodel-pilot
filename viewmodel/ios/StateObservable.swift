@@ -12,8 +12,10 @@ public class StateObservable<State>: ObservableObject {
         switch valueHolder {
         case .const(let state):
             state
-        case .flow(let stateFlow):
+        case .stateFlow(let stateFlow):
             stateFlow.value
+        case .flow:
+            lastState
         }
     }
 
@@ -24,12 +26,35 @@ public class StateObservable<State>: ObservableObject {
     }
 
     public init(_ stateFlow: SkieSwiftStateFlow<State>, animation: ((State, State) -> Animation?)? = nil) {
-        self.valueHolder = StateObservableValueHolder.flow(stateFlow)
+        self.valueHolder = StateObservableValueHolder.stateFlow(stateFlow)
         self.animation = animation
         self.lastState = stateFlow.value
 
         task = Task { [weak self] in
             for await newState in stateFlow.dropFirst() {
+                if let lastState = self?.lastState, let animation = self?.animation?(lastState, newState) {
+                    DispatchQueue.main.async {
+                        withAnimation(animation) {
+                            self?.objectWillChange.send()
+                        }
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        self?.objectWillChange.send()
+                    }
+                }
+                self?.lastState = newState
+            }
+        }
+    }
+
+    public init(_ flow: SkieSwiftFlow<State>, initialValue: State, animation: ((State, State) -> Animation?)? = nil) {
+        self.valueHolder = StateObservableValueHolder.flow(flow)
+        self.animation = animation
+        self.lastState = initialValue
+
+        task = Task { [weak self] in
+            for await newState in flow {
                 if let lastState = self?.lastState, let animation = self?.animation?(lastState, newState) {
                     DispatchQueue.main.async {
                         withAnimation(animation) {
@@ -53,5 +78,6 @@ public class StateObservable<State>: ObservableObject {
 
 private enum StateObservableValueHolder<State> {
     case const(State)
-    case flow(SkieSwiftStateFlow<State>)
+    case stateFlow(SkieSwiftStateFlow<State>)
+    case flow(SkieSwiftFlow<State>)
 }

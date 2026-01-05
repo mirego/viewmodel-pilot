@@ -25,6 +25,24 @@ extension View {
     ) -> some View {
         modifier(AccessibilityViewModifier(infoFlow: infoFlow, traits: traits, childBehavior: childBehavior))
     }
+
+    public func pilotAccessibility(
+        _ infoFlow: SkieSwiftOptionalFlow<PilotAccessibilityInfo>,
+        initialValue: PilotAccessibilityInfo? = nil,
+        traits: AccessibilityTraits = [],
+        childBehavior: AccessibilityChildBehavior = .ignore
+    ) -> some View {
+        modifier(NullableAccessibilityViewModifier(infoFlow: infoFlow, initialValue: initialValue, traits: traits, childBehavior: childBehavior))
+    }
+
+    public func pilotAccessibility(
+        _ infoFlow: SkieSwiftFlow<PilotAccessibilityInfo>,
+        initialValue: PilotAccessibilityInfo,
+        traits: AccessibilityTraits = [],
+        childBehavior: AccessibilityChildBehavior = .ignore
+    ) -> some View {
+        modifier(AccessibilityViewModifier(infoFlow: infoFlow, initialValue: initialValue, traits: traits, childBehavior: childBehavior))
+    }
 }
 
 private struct NullableAccessibilityViewModifier: ViewModifier {
@@ -52,6 +70,17 @@ private struct NullableAccessibilityViewModifier: ViewModifier {
         self.childBehavior = childBehavior
     }
 
+    init(
+        infoFlow: SkieSwiftOptionalFlow<PilotAccessibilityInfo>,
+        initialValue: PilotAccessibilityInfo?,
+        traits: AccessibilityTraits,
+        childBehavior: AccessibilityChildBehavior
+    ) {
+        _accessibilityInfo = ObservedObject(wrappedValue: NullableStateObservable(infoFlow, initialValue: initialValue))
+        self.traits = traits
+        self.childBehavior = childBehavior
+    }
+
     func body(content: Content) -> some View {
         content
             .configureAccessibility(
@@ -73,6 +102,17 @@ private struct AccessibilityViewModifier: ViewModifier {
         childBehavior: AccessibilityChildBehavior
     ) {
         _accessibilityInfo = ObservedObject(wrappedValue: StateObservable(infoFlow))
+        self.traits = traits
+        self.childBehavior = childBehavior
+    }
+
+    init(
+        infoFlow: SkieSwiftFlow<PilotAccessibilityInfo>,
+        initialValue: PilotAccessibilityInfo,
+        traits: AccessibilityTraits,
+        childBehavior: AccessibilityChildBehavior
+    ) {
+        _accessibilityInfo = ObservedObject(wrappedValue: StateObservable(infoFlow, initialValue: initialValue))
         self.traits = traits
         self.childBehavior = childBehavior
     }

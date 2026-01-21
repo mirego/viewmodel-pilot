@@ -1,6 +1,7 @@
 package com.mirego.pilot.components.ui.material3
 
 import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.LocalTextStyle
@@ -55,6 +56,7 @@ public fun PilotTextField(
         onValueChange = pilotTextField::onValueChange,
         placeholder = {
             Text(
+                modifier = Modifier.fillMaxWidth(),
                 text = placeHolder,
                 style = placeHolderStyle,
             )

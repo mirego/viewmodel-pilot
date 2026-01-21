@@ -7,8 +7,8 @@
 3. Update the version in `gradle.properties` and remove the `-SNAPSHOT` suffix.
 4. Commit the changes, create a tag and push it:
    ```
-   git commit -am "Releasing 0.1.0."
-   git tag 1.0.0
+   git commit -am "Releasing 0.4.4"
+   git tag 0.4.4
    git push && git push --tags
    ```
 5. Run the `release` github action to publish the release to maven.

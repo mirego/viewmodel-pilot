@@ -10,6 +10,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Breaking Changes
 
+## 0.4.5
+
+### Added
+- Android PilotTextField now uses contentType for password obscuring and autofill hints
+
 ## 0.4.0
 
 ### Added

@@ -20,7 +20,7 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import com.mirego.pilot.components.PilotTextField
-import com.mirego.pilot.components.type.PilotTextContentType
+import com.mirego.pilot.components.type.PilotTextObfuscationMode
 import com.mirego.pilot.components.ui.PilotFormattedVisualTransformation
 import com.mirego.pilot.components.ui.mergeWith
 import com.mirego.pilot.components.ui.type.composeValue
@@ -55,12 +55,18 @@ public fun PilotTextField(
     val keyboardType by pilotTextField.keyboardType.collectAsState()
     val keyboardReturnKeyType by pilotTextField.keyboardReturnKeyType.collectAsState()
     val textContentType by pilotTextField.contentType.collectAsState()
+    val textObfuscationMode by pilotTextField.textObfuscationMode.collectAsState()
 
     val modifierWithSemantics = textContentType.composeValue?.let { composeContentType ->
         modifier.semantics {
             contentType = composeContentType
         }
     } ?: modifier
+
+    val visualTransformation = when (textObfuscationMode) {
+        PilotTextObfuscationMode.Hidden -> PasswordVisualTransformation()
+        PilotTextObfuscationMode.Visible -> PilotFormattedVisualTransformation(pilotTextField.formatText)
+    }
 
     OutlinedTextField(
         value = textValue,
@@ -80,10 +86,7 @@ public fun PilotTextField(
         prefix = prefix,
         suffix = suffix,
         supportingText = supportingText,
-        visualTransformation = when (textContentType) {
-            PilotTextContentType.Password, PilotTextContentType.NewPassword -> PasswordVisualTransformation()
-            else -> PilotFormattedVisualTransformation(pilotTextField.formatText)
-        },
+        visualTransformation = visualTransformation,
         isError = isError,
         keyboardActions = pilotTextField.mergeWith(keyboardActions),
         keyboardOptions = KeyboardOptions(

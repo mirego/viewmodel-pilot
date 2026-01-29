@@ -10,6 +10,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Breaking Changes
 
+## 0.4.6
+
+### Updates
+
+### Breaking Changes
+
 ## 0.4.5
 
 ### Added

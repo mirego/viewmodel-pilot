@@ -10,17 +10,18 @@ import kotlinx.coroutines.flow.StateFlow
 
 public open class PilotTextField(
     private val textFlow: MutableStateFlow<String>,
-    public val placeholder: StateFlow<String>,
-    public val keyboardType: StateFlow<PilotKeyboardType> = MutableStateFlow(PilotKeyboardType.Default),
-    public val keyboardReturnKeyType: StateFlow<PilotKeyboardReturnKeyType> = MutableStateFlow(PilotKeyboardReturnKeyType.Default),
-    public val contentType: StateFlow<PilotTextContentType> = MutableStateFlow(PilotTextContentType.NotSet),
-    public val textObfuscationMode: StateFlow<PilotTextObfuscationMode> = MutableStateFlow(PilotTextObfuscationMode.Visible),
-    public val autoCorrect: StateFlow<Boolean> = MutableStateFlow(true),
-    public val autoCapitalization: StateFlow<PilotKeyboardAutoCapitalization> = MutableStateFlow(PilotKeyboardAutoCapitalization.Sentences),
-    public val onReturnKeyTap: () -> Unit = {},
-    public val formatText: (text: String) -> String = { it },
-    public val unformatText: (text: String) -> String = { it },
-    public val transformText: (text: String) -> String = { it },
+    public open val placeholder: StateFlow<String>,
+    public open val isEnabled: StateFlow<Boolean> = MutableStateFlow(true),
+    public open val keyboardType: StateFlow<PilotKeyboardType> = MutableStateFlow(PilotKeyboardType.Default),
+    public open val keyboardReturnKeyType: StateFlow<PilotKeyboardReturnKeyType> = MutableStateFlow(PilotKeyboardReturnKeyType.Default),
+    public open val contentType: StateFlow<PilotTextContentType> = MutableStateFlow(PilotTextContentType.NotSet),
+    public open val textObfuscationMode: StateFlow<PilotTextObfuscationMode> = MutableStateFlow(PilotTextObfuscationMode.Visible),
+    public open val autoCorrect: StateFlow<Boolean> = MutableStateFlow(true),
+    public open val autoCapitalization: StateFlow<PilotKeyboardAutoCapitalization> = MutableStateFlow(PilotKeyboardAutoCapitalization.Sentences),
+    public open val onReturnKeyTap: () -> Unit = {},
+    public open val formatText: (text: String) -> String = { it },
+    public open val unformatText: (text: String) -> String = { it },
+    public open val transformText: (text: String) -> String = { it },
 ) {
 
     public val text: StateFlow<String> = textFlow

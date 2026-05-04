@@ -50,6 +50,7 @@ public fun PilotTextField(
 ) {
     val textValue by pilotTextField.text.collectAsState()
     val placeHolder by pilotTextField.placeholder.collectAsState()
+    val isEnabledFlow by pilotTextField.isEnabled.collectAsState()
     val autoCapitalization by pilotTextField.autoCapitalization.collectAsState()
     val autoCorrect by pilotTextField.autoCorrect.collectAsState()
     val keyboardType by pilotTextField.keyboardType.collectAsState()
@@ -100,7 +101,7 @@ public fun PilotTextField(
         interactionSource = interactionSource,
         shape = shape,
         colors = colors,
-        enabled = enabled,
+        enabled = enabled && isEnabledFlow,
         readOnly = readOnly,
         singleLine = singleLine,
     )

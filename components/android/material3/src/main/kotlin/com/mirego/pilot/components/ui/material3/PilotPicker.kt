@@ -30,10 +30,12 @@ public fun <LABEL : Any, ITEM : Any> PilotPicker(
     labelView: @Composable (label: LABEL) -> Unit,
     item: @Composable (item: ITEM) -> Unit,
 ) {
+    val isEnabled by pilotPicker.isEnabled.collectAsState()
     Box {
         Box(
             modifier = modifier
                 .clickable(
+                    enabled = isEnabled,
                     onClick = { onExpandedChange(!expanded) },
                     role = Role.DropdownList,
                 ),

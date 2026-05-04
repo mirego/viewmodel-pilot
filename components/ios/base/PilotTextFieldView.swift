@@ -7,6 +7,7 @@ public struct PilotTextFieldView<Label>: View where Label: View {
 
     @ObservedObject private var text: StateObservable<String>
     @ObservedObject private var placeholder: StateObservable<String>
+    @ObservedObject private var isEnabled: StateObservable<KotlinBoolean>
     @ObservedObject private var keyboardType: StateObservable<PilotKeyboardType>
     @ObservedObject private var keyboardReturnKeyType: StateObservable<PilotKeyboardReturnKeyType>
     @ObservedObject private var contentType: StateObservable<PilotTextContentType>
@@ -28,6 +29,7 @@ public struct PilotTextFieldView<Label>: View where Label: View {
 
         _text = ObservedObject(wrappedValue: StateObservable(pilotTextField.text))
         _placeholder = ObservedObject(wrappedValue: StateObservable(pilotTextField.placeholder))
+        _isEnabled = ObservedObject(wrappedValue: StateObservable(pilotTextField.isEnabled))
         _keyboardType = ObservedObject(wrappedValue: StateObservable(pilotTextField.keyboardType))
         _keyboardReturnKeyType = ObservedObject(wrappedValue: StateObservable(pilotTextField.keyboardReturnKeyType))
         _contentType = ObservedObject(wrappedValue: StateObservable(pilotTextField.contentType))
@@ -50,6 +52,7 @@ public struct PilotTextFieldView<Label>: View where Label: View {
             .textContentType(contentType.value.uiTextContentType)
             #endif
             .disableAutocorrection(!autoCorrect.value.boolValue)
+            .disabled(!isEnabled.value.boolValue)
             .textFieldStyle(ExtendedTapAreaTextFieldStyle())
             .onChange(of: text.value) { newValue in
                 textFieldText = pilotTextField.formatText(newValue)

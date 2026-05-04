@@ -9,6 +9,7 @@ public struct PilotPickerView<Label, LabelView, Item, ItemView>: View where Labe
 
     @ObservedObject private var label: StateObservable<Label>
     @ObservedObject private var items: StateObservable<[Item]>
+    @ObservedObject private var isEnabled: StateObservable<KotlinBoolean>
 
     public init(
         _ picker: PilotPicker<Label, Item>,
@@ -21,6 +22,7 @@ public struct PilotPickerView<Label, LabelView, Item, ItemView>: View where Labe
 
         _label = ObservedObject(wrappedValue: StateObservable(picker.label))
         _items = ObservedObject(wrappedValue: StateObservable(picker.items))
+        _isEnabled = ObservedObject(wrappedValue: StateObservable(picker.isEnabled))
     }
 
     public var body: some View {
@@ -35,5 +37,6 @@ public struct PilotPickerView<Label, LabelView, Item, ItemView>: View where Labe
         } label: {
             labelBuilder(label.value)
         }
+        .disabled(!isEnabled.value.boolValue)
     }
 }

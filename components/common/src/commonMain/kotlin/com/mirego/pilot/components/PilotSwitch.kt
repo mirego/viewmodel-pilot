@@ -1,9 +1,11 @@
 package com.mirego.pilot.components
 
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 
-public class PilotSwitch<T : Any>(
-    public val isOn: StateFlow<Boolean>,
-    public val label: T,
-    public val onCheckedChange: (Boolean) -> Unit = {},
+public open class PilotSwitch<T : Any>(
+    public open val isOn: StateFlow<Boolean>,
+    public open val label: T,
+    public open val isEnabled: StateFlow<Boolean> = MutableStateFlow(true),
+    public open val onCheckedChange: (Boolean) -> Unit = {},
 )

@@ -6,11 +6,13 @@ public struct PilotSwitchView<Content, Label>: View where Content: AnyObject, La
     private let labelBuilder: (Content) -> Label
 
     @ObservedObject private var isOn: StateObservable<KotlinBoolean>
+    @ObservedObject private var isEnabled: StateObservable<KotlinBoolean>
 
     public init(_ pilotSwitch: PilotSwitch<Content>, labelBuilder: @escaping (Content) -> Label) {
         self.pilotSwitch = pilotSwitch
         self.labelBuilder = labelBuilder
         _isOn = ObservedObject(wrappedValue: StateObservable(pilotSwitch.isOn))
+        _isEnabled = ObservedObject(wrappedValue: StateObservable(pilotSwitch.isEnabled))
     }
 
     public var body: some View {
@@ -25,5 +27,6 @@ public struct PilotSwitchView<Content, Label>: View where Content: AnyObject, La
         ) {
             labelBuilder(pilotSwitch.label)
         }
+        .disabled(!isEnabled.value.boolValue)
     }
 }

@@ -1,7 +1,7 @@
 import Shared
 import SwiftUI
 
-public struct PilotTextFieldView<Label>: View where Label: View {
+public struct PilotTextFieldView<Label: View>: View {
     private let pilotTextField: PilotTextField
     private let placeholderBuilder: (String) -> Label
 
@@ -16,12 +16,6 @@ public struct PilotTextFieldView<Label>: View where Label: View {
     @ObservedObject private var autoCapitalization: StateObservable<PilotKeyboardAutoCapitalization>
 
     @State private var textFieldText: String
-    @FocusState private var focusedField: FieldType?
-
-    private enum FieldType {
-        case secure
-        case plain
-    }
 
     public init(_ pilotTextField: PilotTextField, placeholderBuilder: @escaping (String) -> Label) {
         self.pilotTextField = pilotTextField
@@ -46,11 +40,11 @@ public struct PilotTextFieldView<Label>: View where Label: View {
                 pilotTextField.onReturnKeyTap()
             }
             .submitLabel(keyboardReturnKeyType.value.submitLabel)
-            #if canImport(UIKit)
+        #if canImport(UIKit)
             .keyboardType(keyboardType.value.uiKeyboardType)
             .autocapitalization(autoCapitalization.value.uiTextAutocapitalizationType)
             .textContentType(contentType.value.uiTextContentType)
-            #endif
+        #endif
             .disableAutocorrection(!autoCorrect.value.boolValue)
             .disabled(!isEnabled.value.boolValue)
             .textFieldStyle(ExtendedTapAreaTextFieldStyle())
@@ -62,29 +56,19 @@ public struct PilotTextFieldView<Label>: View where Label: View {
                 textFieldText = pilotTextField.formatText(pilotTextField.transformText(unformattedText))
                 pilotTextField.onValueChange(text: unformattedText)
             }
-            .onChange(of: textObfuscationMode.value) { newValue in
-                if focusedField != nil {
-                    withAnimation(nil) {
-                        focusedField = newValue == .hidden ? .secure : .plain
-                    }
-                }
-            }
     }
 
-    @ViewBuilder
     private var baseTextField: some View {
-        ZStack {
-            SecureField(text: $textFieldText) {
-                placeholderBuilder(placeholder.value)
+        Group {
+            if textObfuscationMode.value == .hidden {
+                SecureField(text: $textFieldText) {
+                    placeholderBuilder(placeholder.value)
+                }
+            } else {
+                TextField(text: $textFieldText) {
+                    placeholderBuilder(placeholder.value)
+                }
             }
-            .opacity(textObfuscationMode.value == .hidden ? 1 : 0)
-            .focused($focusedField, equals: .secure)
-
-            TextField(text: $textFieldText) {
-                placeholderBuilder(placeholder.value)
-            }
-            .opacity(textObfuscationMode.value == .visible ? 1 : 0)
-            .focused($focusedField, equals: .plain)
         }
         .transaction { transaction in
             transaction.animation = nil

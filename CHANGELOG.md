@@ -10,6 +10,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Breaking Changes
 
+## 0.4.8
+
+### Fixed
+- iOS `PilotTextFieldView` now correctly handles `PilotTextObfuscationMode` by using conditional rendering instead of overlapping fields
+
 ## 0.4.7
 
 ### Added

@@ -32,18 +32,7 @@ public class NullableStateObservable<State>: ObservableObject {
 
         task = Task { [weak self] in
             for await newState in stateFlow.dropFirst() {
-                if let animation = self?.animation?(self?.lastState, newState) {
-                    DispatchQueue.main.async {
-                        withAnimation(animation) {
-                            self?.objectWillChange.send()
-                        }
-                    }
-                } else {
-                    DispatchQueue.main.async {
-                        self?.objectWillChange.send()
-                    }
-                }
-                self?.lastState = newState
+                await self?.apply(newState)
             }
         }
     }
@@ -55,20 +44,21 @@ public class NullableStateObservable<State>: ObservableObject {
 
         task = Task { [weak self] in
             for await newState in flow {
-                if let animation = self?.animation?(self?.lastState, newState) {
-                    DispatchQueue.main.async {
-                        withAnimation(animation) {
-                            self?.objectWillChange.send()
-                        }
-                    }
-                } else {
-                    DispatchQueue.main.async {
-                        self?.objectWillChange.send()
-                    }
-                }
-                self?.lastState = newState
+                await self?.apply(newState)
             }
         }
+    }
+
+    @MainActor
+    private func apply(_ newState: State?) {
+        if let animation = animation?(lastState, newState) {
+            withAnimation(animation) {
+                objectWillChange.send()
+            }
+        } else {
+            objectWillChange.send()
+        }
+        lastState = newState
     }
 
     deinit {

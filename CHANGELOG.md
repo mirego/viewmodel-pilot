@@ -4,14 +4,10 @@ All notable changes to the library will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
-## Upcoming
+## 0.4.9
 
 ### Fixed
 - iOS `StateObservable` no longer races on its cached state: the flow/state-flow collection now mutates `lastState` on the main actor instead of the background collection context, preventing a crash (`objc_opt_isKindOfClass` via SKIE `onEnum`) when the value is read during SwiftUI body evaluation
-
-### Updates
-
-### Breaking Changes
 
 ## 0.4.8
 

@@ -15,4 +15,6 @@ public val PilotKeyboardType.composeValue: KeyboardType
         PilotKeyboardType.NumberPassword -> KeyboardType.NumberPassword
         PilotKeyboardType.Phone -> KeyboardType.Phone
         PilotKeyboardType.URL -> KeyboardType.Uri
+        PilotKeyboardType.Decimal -> KeyboardType.Decimal
+        PilotKeyboardType.NumberPunctuation -> KeyboardType.Ascii // TODO Use DecimalSigned when Compose 1.12.0 hits stable
     }

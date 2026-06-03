@@ -373,10 +373,12 @@ public final class com/mirego/pilot/components/type/PilotKeyboardReturnKeyType :
 
 public final class com/mirego/pilot/components/type/PilotKeyboardType : java/lang/Enum {
 	public static final field Ascii Lcom/mirego/pilot/components/type/PilotKeyboardType;
+	public static final field Decimal Lcom/mirego/pilot/components/type/PilotKeyboardType;
 	public static final field Default Lcom/mirego/pilot/components/type/PilotKeyboardType;
 	public static final field Email Lcom/mirego/pilot/components/type/PilotKeyboardType;
 	public static final field Number Lcom/mirego/pilot/components/type/PilotKeyboardType;
 	public static final field NumberPassword Lcom/mirego/pilot/components/type/PilotKeyboardType;
+	public static final field NumberPunctuation Lcom/mirego/pilot/components/type/PilotKeyboardType;
 	public static final field Password Lcom/mirego/pilot/components/type/PilotKeyboardType;
 	public static final field Phone Lcom/mirego/pilot/components/type/PilotKeyboardType;
 	public static final field URL Lcom/mirego/pilot/components/type/PilotKeyboardType;

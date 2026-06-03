@@ -9,4 +9,6 @@ public enum class PilotKeyboardType {
     NumberPassword,
     Phone,
     URL,
+    Decimal,
+    NumberPunctuation,
 }

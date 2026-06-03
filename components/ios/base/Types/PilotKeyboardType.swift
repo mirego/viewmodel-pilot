@@ -10,6 +10,8 @@ extension PilotKeyboardType {
             return .asciiCapable
         case .number:
             return .numberPad
+        case .decimal:
+            return .decimalPad
         case .email:
             return .emailAddress
         case .password:
@@ -20,6 +22,8 @@ extension PilotKeyboardType {
             return .phonePad
         case .url:
             return .URL
+        case .numberPunctuation:
+            return .numbersAndPunctuation
         }
     }
 }

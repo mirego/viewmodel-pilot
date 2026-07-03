@@ -1,4 +1,4 @@
-import Shared
+import PILOT_FRAMEWORK_NAME
 import SwiftUI
 
 public struct PilotButtonView<Content, Label>: View where Content: AnyObject, Label: View {

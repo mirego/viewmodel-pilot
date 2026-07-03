@@ -24,6 +24,7 @@ include(
     ":components-coil",
     ":components-coil3",
     ":components-material3",
+    ":pilot-swift-extensions-plugin",
 )
 
 project(":navigation").projectDir = File("navigation/common")

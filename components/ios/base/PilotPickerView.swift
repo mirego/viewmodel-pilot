@@ -1,4 +1,4 @@
-import PILOT_FRAMEWORK_NAME
+import Shared
 import SwiftUI
 
 public struct PilotPickerView<Label, LabelView, Item, ItemView>: View where Label: AnyObject, LabelView: View, Item: AnyObject, ItemView: View {

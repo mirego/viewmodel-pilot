@@ -1,5 +1,5 @@
 import Kingfisher
-import PILOT_FRAMEWORK_NAME
+import Shared
 import SwiftUI
 
 public struct PilotRemoteImageView: View {

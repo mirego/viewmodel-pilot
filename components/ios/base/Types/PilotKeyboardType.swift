@@ -1,4 +1,4 @@
-import PILOT_FRAMEWORK_NAME
+import Shared
 import SwiftUI
 
 extension PilotKeyboardType {

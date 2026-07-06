@@ -4,6 +4,11 @@ All notable changes to the library will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 0.4.11
+
+### Added
+- `pilot-swift-extensions-plugin` Gradle plugin to generate Pilot's Swift extension files at consumer build time instead of requiring manual vendoring
+
 ## 0.4.10
 
 ### Added

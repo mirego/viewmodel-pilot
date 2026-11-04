@@ -13,4 +13,5 @@ public val PilotKeyboardReturnKeyType.composeValue: ImeAction
         PilotKeyboardReturnKeyType.Next -> ImeAction.Next
         PilotKeyboardReturnKeyType.Search -> ImeAction.Search
         PilotKeyboardReturnKeyType.Send -> ImeAction.Send
+        PilotKeyboardReturnKeyType.Return -> ImeAction.Default
     }

@@ -7,4 +7,5 @@ public enum class PilotKeyboardReturnKeyType {
     Next,
     Search,
     Send,
+    Return,
 }

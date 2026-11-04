@@ -364,6 +364,7 @@ public final class com/mirego/pilot/components/type/PilotKeyboardReturnKeyType :
 	public static final field Done Lcom/mirego/pilot/components/type/PilotKeyboardReturnKeyType;
 	public static final field Go Lcom/mirego/pilot/components/type/PilotKeyboardReturnKeyType;
 	public static final field Next Lcom/mirego/pilot/components/type/PilotKeyboardReturnKeyType;
+	public static final field Return Lcom/mirego/pilot/components/type/PilotKeyboardReturnKeyType;
 	public static final field Search Lcom/mirego/pilot/components/type/PilotKeyboardReturnKeyType;
 	public static final field Send Lcom/mirego/pilot/components/type/PilotKeyboardReturnKeyType;
 	public static fun getEntries ()Lkotlin/enums/EnumEntries;

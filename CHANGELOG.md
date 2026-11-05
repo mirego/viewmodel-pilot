@@ -4,6 +4,11 @@ All notable changes to the library will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 0.4.12
+
+### Added
+- `Return` added to `PilotKeyboardReturnKeyType` to show a line-break return key on multiline text inputs (`SubmitLabel.return` on iOS, `ImeAction.Default` on Android)
+
 ## 0.4.11
 
 ### Added

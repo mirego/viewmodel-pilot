@@ -16,6 +16,8 @@ extension PilotKeyboardReturnKeyType {
             return .search
         case .send:
             return .send
+        case .return:
+            return .return
         }
     }
 }
